@@ -1,0 +1,864 @@
+{
+  "action-layout-toolbar": [
+    "Add Books",
+    "Edit Metadata",
+    null,
+    "Convert Books",
+    "View",
+    null,
+    "Store",
+    "Donate",
+    "Fetch News",
+    "Help",
+    null,
+    "Preferences",
+    "Remove Books",
+    "Choose Library",
+    "Save To Disk",
+    "Connect Share",
+    "Tweak ePub",
+    "Reading Goal"
+  ],
+  "action-layout-toolbar-device": [
+    "Add Books",
+    "Edit Metadata",
+    null,
+    "Convert Books",
+    "View",
+    "Send To Device",
+    null,
+    null,
+    "Location Manager",
+    null,
+    null,
+    "Fetch News",
+    "Save To Disk",
+    "Store",
+    "Connect Share",
+    null,
+    "Remove Books",
+    null,
+    "Help",
+    "Preferences",
+    "Reading Goal"
+  ],
+  "advanced search dialog current tab": 0,
+  "basic_metadata_widget_splitter_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAADAAAA5wAAAWMAAAEKAf////8BAAAAAQA="
+  },
+  "book_list_pin_splitter_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
+  },
+  "color_palette": "dark",
+  "cover_grid_color": [
+    80,
+    80,
+    80
+  ],
+  "cover_grid_texture": null,
+  "custcol-prefs-table-geometry": [
+    66,
+    128,
+    117,
+    368,
+    103,
+    70
+  ],
+  "custom_colors_for_color_dialog": [
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ]
+  ],
+  "dark_palette_name": "__current__",
+  "dark_palettes": {
+    "__current__": {
+      "AlternateBase": "#282a36",
+      "Base": "#282a36",
+      "BrightText": "#ff0000",
+      "BrightText-disabled": "#ff0000",
+      "Button": "#282a36",
+      "ButtonText": "#f8f8f2",
+      "ButtonText-disabled": "#282a36",
+      "Highlight": "#6272a4",
+      "HighlightedText": "#f8f8f2",
+      "HighlightedText-disabled": "#282a36",
+      "Link": "#8be9fd",
+      "LinkVisited": "#ff79c6",
+      "PlaceholderText": "#282a36",
+      "PlaceholderText-disabled": "#282a36",
+      "Text": "#f8f8f2",
+      "Text-disabled": "#282a36",
+      "ToolTipBase": "#282a36",
+      "ToolTipText": "#f8f8f2",
+      "ToolTipText-disabled": "#f8f8f2",
+      "Window": "#282a36",
+      "WindowText": "#f8f8f2",
+      "WindowText-disabled": "#f8f8f2"
+    }
+  },
+  "default_author_link": null,
+  "general_category_editor_row_height": 30,
+  "geometry-of-Plugin Updater plugin:plugin updater dialog": {
+    "frame_geometry": {
+      "height": 506,
+      "width": 920,
+      "x": 2420,
+      "y": 303
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 2422,
+      "y": 321
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 2422,
+      "y": 321
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAl0AAABLwAADQsAAAMoAAAJdgAAAUEAAA0JAAADJgAAAAEAAAAAB4AAAAl2AAABQQAADQkAAAMm"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-calibre_main_window_geometry": {
+    "frame_geometry": {
+      "height": 1030,
+      "width": 1920,
+      "x": 1920,
+      "y": 50
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1028,
+      "width": 1916,
+      "x": 1922,
+      "y": 50
+    },
+    "maximized": true,
+    "normal_geometry": {
+      "height": 1028,
+      "width": 1916,
+      "x": 1922,
+      "y": 50
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAeAAAAAMgAADv8AAAQ3AAAHggAAADIAAA79AAAENQAAAAECAAAAB4AAAAeCAAAAMgAADv0AAAQ1"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-choose-icon-theme-dialog-geometry": {
+    "frame_geometry": {
+      "height": 1025,
+      "width": 904,
+      "x": 2422,
+      "y": 40
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1005,
+      "width": 900,
+      "x": 2424,
+      "y": 58
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 1005,
+      "width": 900,
+      "x": 2424,
+      "y": 58
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAl2AAAAKAAADP0AAAQoAAAJeAAAADoAAAz7AAAEJgAAAAEAAAAAB4AAAAl4AAAAOgAADPsAAAQm"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-convert_single_dialog_geom": {
+    "frame_geometry": {
+      "height": 1017,
+      "width": 1850,
+      "x": 1955,
+      "y": 32
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 980,
+      "width": 1850,
+      "x": 1955,
+      "y": 69
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 980,
+      "width": 1850,
+      "x": 1955,
+      "y": 69
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAejAAAAIAAADtwAAAQYAAAHowAAAEUAAA7cAAAEGAAAAAEAAAAAB4AAAAejAAAARQAADtwAAAQY"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-customize-palette-geometry": {
+    "frame_geometry": {
+      "height": 660,
+      "width": 830,
+      "x": 2773,
+      "y": 358
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 640,
+      "width": 826,
+      "x": 2775,
+      "y": 376
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 640,
+      "width": 826,
+      "x": 2775,
+      "y": 376
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAArVAAABZgAADhIAAAP5AAAK1wAAAXgAAA4QAAAD9wAAAAEAAAAAB4AAAArXAAABeAAADhAAAAP3"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-job-detail-view-dialog-geometry": {
+    "frame_geometry": {
+      "height": 537,
+      "width": 700,
+      "x": 2616,
+      "y": 211
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 500,
+      "width": 700,
+      "x": 2616,
+      "y": 248
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 500,
+      "width": 700,
+      "x": 2616,
+      "y": 248
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAo4AAAA0wAADPMAAALrAAAKOAAAAPgAAAzzAAAC6wAAAAEAAAAAB4AAAAo4AAAA+AAADPMAAALr"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-jobs_dialog_geometry": {
+    "frame_geometry": {
+      "height": 339,
+      "width": 546,
+      "x": 2693,
+      "y": 310
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 302,
+      "width": 546,
+      "x": 2693,
+      "y": 347
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 302,
+      "width": 546,
+      "x": 2693,
+      "y": 347
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAqFAAABNgAADKYAAAKIAAAKhQAAAVsAAAymAAACiAAAAAEAAAAAB4AAAAqFAAABWwAADKYAAAKI"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-metasingle_window_geometry3": {
+    "frame_geometry": {
+      "height": 1050,
+      "width": 1854,
+      "x": 1947,
+      "y": 27
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1030,
+      "width": 1850,
+      "x": 1949,
+      "y": 45
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 1030,
+      "width": 1850,
+      "x": 1949,
+      "y": 45
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAebAAAAGwAADtgAAAQ0AAAHnQAAAC0AAA7WAAAEMgAAAAEAAAAAB4AAAAedAAAALQAADtYAAAQy"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-preferences dialog geometry": {
+    "frame_geometry": {
+      "height": 740,
+      "width": 934,
+      "x": 577,
+      "y": 168
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 720,
+      "width": 930,
+      "x": 579,
+      "y": 186
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 720,
+      "width": 930,
+      "x": 579,
+      "y": 186
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAJBAAAAqAAABeYAAAOLAAACQwAAALoAAAXkAAADiQAAAAAAAAAAB4AAAAJDAAAAugAABeQAAAOJ"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Chimei Innolux Corporation",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-quickview_dialog_geometry": {
+    "frame_geometry": {
+      "height": 1030,
+      "width": 1920,
+      "x": 1920,
+      "y": 50
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1028,
+      "width": 1916,
+      "x": 1922,
+      "y": 50
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 1028,
+      "width": 1916,
+      "x": 1922,
+      "y": 50
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAeAAAAAMgAADv8AAAQ3AAAHggAAADIAAA79AAAENQAAAAEAAAAAB4AAAAeCAAAAMgAADv0AAAQ1"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-tag_list_editor_dialog_geometry": {
+    "frame_geometry": {
+      "height": 538,
+      "width": 885,
+      "x": 2430,
+      "y": 265
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 518,
+      "width": 881,
+      "x": 2432,
+      "y": 283
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 518,
+      "width": 881,
+      "x": 2432,
+      "y": 283
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAl+AAABCQAADPIAAAMiAAAJgAAAARsAAAzwAAADIAAAAAEAAAAAB4AAAAmAAAABGwAADPAAAAMg"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "gpm_template_editor_font": "Sans Serif",
+  "gpm_template_editor_word_wrap_mode": true,
+  "grid view visible": false,
+  "jobs view column layout3": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAAAAAAAA=="
+  },
+  "library_usage_stats": {
+    "/home/manuelin/Calibre Library": 22,
+    "/home/manuelin/Desktop/reads/calibre_library": 19
+  },
+  "light_palette_name": "",
+  "light_palettes": {
+    "__current__": {
+      "AlternateBase": "#f5f5f5",
+      "Base": "#ffffff",
+      "BrightText": "#ff0000",
+      "BrightText-disabled": "#ff0000",
+      "Button": "#f0f0f0",
+      "ButtonText": "#000000",
+      "ButtonText-disabled": "#787878",
+      "Highlight": "#308cc6",
+      "HighlightedText": "#ffffff",
+      "HighlightedText-disabled": "#787878",
+      "Link": "#0000ff",
+      "LinkVisited": "#ff00ff",
+      "PlaceholderText": "#787878",
+      "PlaceholderText-disabled": "#787878",
+      "Text": "#000000",
+      "Text-disabled": "#787878",
+      "ToolTipBase": "#ffffdc",
+      "ToolTipText": "#000000",
+      "ToolTipText-disabled": "#000000",
+      "Window": "#f0f0f0",
+      "WindowText": "#000000",
+      "WindowText-disabled": "#000000"
+    }
+  },
+  "main_window_central_widget_state": {
+    "layout": "wide",
+    "narrow_desires": {
+      "book_details_height": 0.23059866962305986,
+      "cover_browser_width": 0.3494704992435703,
+      "quick_view_height": 0.25609756097560976,
+      "tag_browser_width": 0.24962178517397882
+    },
+    "narrow_visibility": {
+      "book_details": true,
+      "book_list": true,
+      "cover_browser": false,
+      "quick_view": false,
+      "tag_browser": true
+    },
+    "wide_desires": {
+      "book_details_width": 0.29954614220877457,
+      "cover_browser_height": 0.2853907134767837,
+      "quick_view_height": 0.23669309173272934,
+      "tag_browser_width": 0.29954614220877457
+    },
+    "wide_visibility": {
+      "book_details": true,
+      "book_list": true,
+      "cover_browser": false,
+      "quick_view": false,
+      "tag_browser": true
+    }
+  },
+  "quick_start_guide_added": true,
+  "quickview_dialog_books_table_widths": [
+    275,
+    275,
+    275
+  ],
+  "quickview_is_pane": true,
+  "qv_open_at_shutdown": false,
+  "replace_scene_breaks_history": [
+    "",
+    "<hr />",
+    "∗ ∗ ∗",
+    "• • •",
+    "♦ ♦ ♦",
+    "† †",
+    "‡ ‡ ‡",
+    "∞ ∞ ∞",
+    "¤ ¤ ¤"
+  ],
+  "row_numbers_in_book_list": false,
+  "search bar visible": true,
+  "server3_warning_done": true,
+  "show_emblems": false,
+  "tag browser search box visible": true,
+  "tag_list_editor_table_widths": [
+    41,
+    41,
+    41,
+    41,
+    41
+  ],
+  "tb_search_order": {
+    "0": 1,
+    "1": 2,
+    "2": 3,
+    "3": 4,
+    "4": 0
+  },
+  "template_functions_prefs_st_show_help": true,
+  "template_functions_prefs_tf_show_help": true
+}

@@ -1,0 +1,6 @@
+.env
+
+# VSCode machine-specific files
+vscode/argv.json
+vscode/extensions/
+vscode/cli/

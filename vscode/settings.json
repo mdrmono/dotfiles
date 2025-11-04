@@ -1,0 +1,23 @@
+{
+    "python.defaultInterpreterPath": "/home/linuxbrew/.linuxbrew/bin/python3",
+    "jupyter.notebookFileRoot": "${workspaceFolder} ",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.stickyScroll.enabled": false,
+    "redhat.telemetry.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
+    "editor.tabSize": 2,
+    "editor.fontFamily": "Hack Nerd Font, monospace",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.activityBar.location": "hidden",
+    "workbench.statusBar.visible": false,
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "none",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
+}

@@ -1,0 +1,29 @@
+{
+  "add books dialog dir": "/home/manuelin/Desktop/reads/textbooks/CS",
+  "add books dialog dir-last-used-filter-spec-all-files": false,
+  "choose library location": "/home/manuelin/Desktop/reads/calibre_library",
+  "import-calibre-palette": "/home/manuelin/Downloads/calibre-main",
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "8.3",
+      "7.24",
+      "8.13",
+      "7.21",
+      "7.17"
+    ]
+  },
+  "save to disk dialog": "/home/manuelin/Downloads",
+  "sort_history": [
+    [
+      "timestamp",
+      false
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "default",
+  "welcome_wizard_was_run": true
+}

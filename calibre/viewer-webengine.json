@@ -1,0 +1,243 @@
+{
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 1030,
+      "width": 1920,
+      "x": 1920,
+      "y": 50
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1028,
+      "width": 1916,
+      "x": 1922,
+      "y": 50
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 1028,
+      "width": 1916,
+      "x": 1922,
+      "y": 50
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAeAAAAAMgAADv8AAAQ3AAAHggAAADIAAA79AAAENQAAAAEAAAAAB4AAAAeCAAAAMgAADv0AAAQ1"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "index_in_screens_list": 1,
+      "manufacturer": "HGC",
+      "model": "CR270QA",
+      "name": "DP-1-0",
+      "serial": "0000000000000",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEEAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAAHfAAABAQAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "saved-search-settings": {
+    "submit": {
+      "case_sensitive": false,
+      "mode": "normal"
+    }
+  },
+  "session_data": {
+    "controls_help_shown_count": 2,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "remember_last_read": true,
+      "remember_window_geometry": false,
+      "save_annotations_in_ebook": true,
+      "singleinstance": false
+    },
+    "standalone_recently_opened": [
+      {
+        "key": "/home/manuelin/Desktop/reads/calibre_library/Unknown/The Mythical Man-Month Essays on Software Engineering, Anniversary Edition (Frederick P. Brooks) (7)/The Mythical Man-Month Essays on Software - Unknown.djvu",
+        "pathtoebook": "/home/manuelin/Desktop/reads/calibre_library/Unknown/The Mythical Man-Month Essays on Software Engineering, Anniversary Edition (Frederick P. Brooks) (7)/The Mythical Man-Month Essays on Software - Unknown.djvu",
+        "timestamp": "2025-11-01T20:35:47.048Z",
+        "title": "The Mythical Man-Month Essays on Software"
+      },
+      {
+        "authors": [
+          "Robert Glover"
+        ],
+        "key": "/home/manuelin/Desktop/reads/calibre_library/Robert Glover/No More Mr. Nice Guy! (3)/No More Mr. Nice Guy! - Robert Glover.epub",
+        "pathtoebook": "/home/manuelin/Desktop/reads/calibre_library/Robert Glover/No More Mr. Nice Guy! (3)/No More Mr. Nice Guy! - Robert Glover.epub",
+        "timestamp": "2025-11-01T20:26:14.761Z",
+        "title": "No More Mr. Nice Guy!"
+      },
+      {
+        "key": "/home/manuelin/Desktop/reads/calibre_library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
+        "pathtoebook": "/home/manuelin/Desktop/reads/calibre_library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
+        "timestamp": "2025-11-01T20:18:25.692Z",
+        "title": "From Outside In (J. Marvin Brown) (Z-Library)"
+      },
+      {
+        "authors": [
+          "Aho, Alfred V.",
+          "Monica S. Lam",
+          "Ravi Sethi",
+          "Jeffrey D. Ullman"
+        ],
+        "key": "/home/manuelin/Calibre Library/Aho, Alfred V_/Compilers_ Principles, Techniques, and Tools, 2_e (5)/Compilers_ Principles, Techniques, and Too - Aho, Alfred V_.epub",
+        "pathtoebook": "/home/manuelin/Calibre Library/Aho, Alfred V_/Compilers_ Principles, Techniques, and Tools, 2_e (5)/Compilers_ Principles, Techniques, and Too - Aho, Alfred V_.epub",
+        "timestamp": "2025-11-01T19:40:43.340Z",
+        "title": "Compilers: Principles, Techniques, and Tools, 2/e"
+      },
+      {
+        "key": "/home/manuelin/Desktop/reads/textbooks/CSAPP_2016.pdf",
+        "pathtoebook": "/home/manuelin/Desktop/reads/textbooks/CSAPP_2016.pdf",
+        "timestamp": "2025-11-01T19:29:24.064Z",
+        "title": "CSAPP 2016"
+      },
+      {
+        "key": "/home/manuelin/Downloads/Modelos de Proyectos Catastrales en Perú_ Análisis Integral de Innovación Tecnológica y Desafíos de Implementación.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/Modelos de Proyectos Catastrales en Perú_ Análisis Integral de Innovación Tecnológica y Desafíos de Implementación.pdf",
+        "timestamp": "2025-10-23T17:03:53.042Z",
+        "title": "Modelos de Proyectos Catastrales en Perú: Análisis Integral de Innovación Tecnológica y Desafíos de Implementación"
+      },
+      {
+        "authors": [
+          "Complete Solution"
+        ],
+        "key": "/home/manuelin/Downloads/GGE 3122 Assignment 4 - Complete Solution.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/GGE 3122 Assignment 4 - Complete Solution.pdf",
+        "timestamp": "2025-10-15T21:00:02.561Z",
+        "title": "GGE 3122 Assignment 4 - Complete Solution"
+      },
+      {
+        "key": "/home/manuelin/Downloads/301540153.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/301540153.pdf",
+        "timestamp": "2025-07-20T19:36:58.708Z",
+        "title": "301540153"
+      },
+      {
+        "key": "/home/manuelin/Downloads/Proof of Address _ MyPlace@SFU.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/Proof of Address _ MyPlace@SFU.pdf",
+        "timestamp": "2025-07-16T05:52:54.879Z",
+        "title": "Proof of Address | MyPlace@SFU"
+      },
+      {
+        "key": "/home/manuelin/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/HsFearless skyblock 1.8.9/minecraft/options.txt",
+        "pathtoebook": "/home/manuelin/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/HsFearless skyblock 1.8.9/minecraft/options.txt",
+        "timestamp": "2025-07-12T10:58:43.853Z",
+        "title": "options"
+      },
+      {
+        "key": "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 383/assignments/A2/Assignment 2.pdf",
+        "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 383/assignments/A2/Assignment 2.pdf",
+        "timestamp": "2025-07-12T06:08:28.623Z",
+        "title": "CMPT 383 - Assignment 2 (Manuel Delfin, 301540153) - notes - Obsidian v1.8.10"
+      },
+      {
+        "key": "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 365/PA1/0b3bf29246220bc6facbaca0a6e4124dbb37543e.pdf",
+        "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 365/PA1/0b3bf29246220bc6facbaca0a6e4124dbb37543e.pdf",
+        "timestamp": "2025-06-06T08:35:18.661Z",
+        "title": "Programming Assignment 1"
+      },
+      {
+        "key": "/home/manuelin/Downloads/output.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/output.pdf",
+        "timestamp": "2025-06-04T04:58:22.764Z",
+        "title": "CMPT469: M3 - Google Docs"
+      },
+      {
+        "key": "/home/manuelin/Desktop/Cursos/SFU/Cursos/vpn.txt",
+        "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/vpn.txt",
+        "timestamp": "2025-06-04T00:05:26.507Z",
+        "title": "vpn"
+      },
+      {
+        "key": "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 479/E02/Benchmarks.txt",
+        "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 479/E02/Benchmarks.txt",
+        "timestamp": "2025-06-01T21:57:01.987Z",
+        "title": "Benchmarks"
+      },
+      {
+        "key": "/home/manuelin/Downloads/G18_contract_250527_000342 (1) (3).pdf",
+        "pathtoebook": "/home/manuelin/Downloads/G18_contract_250527_000342 (1) (3).pdf",
+        "timestamp": "2025-05-29T22:50:35.444Z",
+        "title": "G18 contract 250527 000342 (1) (3)"
+      },
+      {
+        "key": "/home/manuelin/Downloads/G18_contract_250527_000342 (1).pdf",
+        "pathtoebook": "/home/manuelin/Downloads/G18_contract_250527_000342 (1).pdf",
+        "timestamp": "2025-05-27T07:05:09.365Z",
+        "title": "G18 contract 250527 000342 (1)"
+      },
+      {
+        "key": "/home/manuelin/SFU Courses/vpn.txt",
+        "pathtoebook": "/home/manuelin/SFU Courses/vpn.txt",
+        "timestamp": "2025-05-25T19:04:11.008Z",
+        "title": "vpn"
+      },
+      {
+        "key": "/home/manuelin/Desktop/Cursos/SFU/Cursos/archivo/CMPT 353/vpn.txt",
+        "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/archivo/CMPT 353/vpn.txt",
+        "timestamp": "2025-05-23T16:36:20.983Z",
+        "title": "vpn"
+      },
+      {
+        "key": "/media/manuelin/a9059d4a-2525-45ba-a60c-40c1bccc8974/games/Hollow Knight/Read Me.txt",
+        "pathtoebook": "/media/manuelin/a9059d4a-2525-45ba-a60c-40c1bccc8974/games/Hollow Knight/Read Me.txt",
+        "timestamp": "2025-05-17T04:04:28.002Z",
+        "title": "Read Me"
+      },
+      {
+        "key": "/home/manuelin/Desktop/reads/caca.txt",
+        "pathtoebook": "/home/manuelin/Desktop/reads/caca.txt",
+        "timestamp": "2025-05-17T02:41:02.192Z",
+        "title": "caca"
+      },
+      {
+        "key": "/home/manuelin/Desktop/passphrases.txt",
+        "pathtoebook": "/home/manuelin/Desktop/passphrases.txt",
+        "timestamp": "2025-05-17T02:40:48.069Z",
+        "title": "passphrases"
+      },
+      {
+        "key": "/home/manuelin/Desktop/projects/website/themes/nightfall/README.md",
+        "pathtoebook": "/home/manuelin/Desktop/projects/website/themes/nightfall/README.md",
+        "timestamp": "2025-05-09T16:31:31.695Z",
+        "title": "README"
+      },
+      {
+        "key": "/home/manuelin/Calibre Library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
+        "pathtoebook": "/home/manuelin/Calibre Library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
+        "timestamp": "2025-04-28T13:38:50.231Z",
+        "title": "From Outside In (J. Marvin Brown) (Z-Library)"
+      },
+      {
+        "authors": [
+          "Erin Stern"
+        ],
+        "key": "/home/manuelin/Calibre Library/Erin Stern/The Bodybuilder's Meal Prep Cookbook (4)/The Bodybuilder's Meal Prep Cookbook - Erin Stern.epub",
+        "pathtoebook": "/home/manuelin/Calibre Library/Erin Stern/The Bodybuilder's Meal Prep Cookbook (4)/The Bodybuilder's Meal Prep Cookbook - Erin Stern.epub",
+        "timestamp": "2025-01-26T22:32:14.704Z",
+        "title": "The Bodybuilder's Meal Prep Cookbook"
+      }
+    ]
+  },
+  "viewer-search-case-sensitive": false,
+  "viewer-search-mode": "normal"
+}
