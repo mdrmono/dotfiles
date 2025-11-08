@@ -18,6 +18,7 @@
     "workbench.layoutControl.enabled": false,
     "chat.commandCenter.enabled": false,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "editor.largeFileOptimizations": false
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "editor.largeFileOptimizations": false,
+    "keyboard.dispatch": "keyCode"
 }
