@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Turn off all disconnected monitors first
+DISCONNECTED=($(xrandr --query | grep " disconnected" | cut -d" " -f1))
+for MON in "${DISCONNECTED[@]}"; do
+  echo "Disabling disconnected monitor: $MON"
+  xrandr --output "$MON" --off
+done
+
 # Detect connected monitors
 MONITORS=($(xrandr --query | grep " connected" | cut -d" " -f1))
 
