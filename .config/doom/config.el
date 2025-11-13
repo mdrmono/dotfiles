@@ -80,3 +80,7 @@
 
 ;; Remove all menu sections from the Doom dashboard
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+
+(setq default-frame-alist
+      '((background-color . "#282828")
+        (foreground-color . "#ebdbb2")))
