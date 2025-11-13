@@ -78,6 +78,13 @@
 (setq projectile-project-search-path '("~/Desktop/projects/"))
 (setq fancy-splash-image '"~/.config/emacs/images/doomEmacsGruvbox.svg")
 
+(after! org
+  (map! :map org-mode-map
+        :n "M-j" #'org-metadown
+        :n "M-k" #'org-metaup)
+)
+
+
 ;; Remove all menu sections from the Doom dashboard
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
 
