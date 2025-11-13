@@ -7,18 +7,20 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 ```
 .
 ├── .config/
-│   ├── alacritty/
-│   ├── calibre/
-│   ├── Code/
-│   ├── doom/
-│   ├── fcitx5/
-│   ├── i3/
-│   ├── polybar/
-│   └── rofi/
-├── .env.example
-├── .p10k.zsh
-└── scripts/
-    └── util/
+│   ├── alacritty/      # Terminal emulator configuration
+│   ├── calibre/        # E-book management
+│   ├── Code/           # VS Code settings
+│   ├── doom/           # Doom Emacs configuration
+│   ├── emacs/          # Emacs configuration
+│   ├── fcitx5/         # Input method framework
+│   ├── i3/             # i3 window manager
+│   ├── polybar/        # Status bar configuration
+│   └── rofi/           # Application launcher
+├── .env.example        # Environment variables template
+├── .gitignore
+├── .p10k.zsh           # Powerlevel10k Zsh theme
+├── README.md
+└── scripts/            # Utility scripts
 ```
 
 ## Installation

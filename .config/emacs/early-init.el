@@ -27,7 +27,7 @@
 ;;; Code:
 
 (let (file-name-handler-alist)
-  (add-to-list 'default-frame-alist '(background-color . "#282c34"))
+  (add-to-list 'default-frame-alist '(background-color . "#282828"))
   ;; PERF: Garbage collection is a big contributor to startup times in both
   ;;   interactive and CLI sessions, so I defer it.
   (if noninteractive  ; in CLI sessions
