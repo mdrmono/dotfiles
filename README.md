@@ -11,7 +11,6 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 │   ├── calibre/        # E-book management
 │   ├── Code/           # VS Code settings
 │   ├── doom/           # Doom Emacs configuration
-│   ├── emacs/          # Emacs configuration
 │   ├── fcitx5/         # Input method framework
 │   ├── i3/             # i3 window manager
 │   ├── polybar/        # Status bar configuration
