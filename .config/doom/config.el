@@ -82,6 +82,29 @@
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup)
+
+  ;; Limit task states to [ ], [x], and [-]
+  (setq org-todo-keywords
+        '((sequence "[ ]" "[x]" "[-]")))
+
+  ;; Color coding for task states
+  (setq org-todo-keyword-faces
+        '(("[ ]" . (:foreground "#fe8019" :weight bold))    ; Orange for TODO
+          ("[x]" . (:foreground "#b8bb26" :weight bold))    ; Green for DONE
+          ("[-]" . (:foreground "#fb4934" :weight bold))))  ; Red for CANCELLED
+
+  ;; Enable org-fancy-priorities for icons
+  (require 'org-fancy-priorities)
+  (add-hook 'org-mode-hook 'org-fancy-priorities-mode)
+
+  ;; Set priority icons
+  (setq org-fancy-priorities-list '("⚑" "⬆" "■"))
+
+  ;; Color coding for priorities
+  (setq org-priority-faces
+        '((?A . (:foreground "#fb4934" :weight bold))    ; Red for high priority
+          (?B . (:foreground "#fabd2f" :weight bold))    ; Yellow for medium priority
+          (?C . (:foreground "#83a598" :weight bold))))  ; Blue for low priority
 )
 
 
