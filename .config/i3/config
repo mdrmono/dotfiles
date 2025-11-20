@@ -26,7 +26,7 @@ font pango:monospace 8
 # exec_always --no-startup-id sh -c 'killall -q polybar; while pgrep -x polybar >/dev/null; do sleep 0.2; done; polybar main & polybar secondary &'
 exec_always --no-startup-id ~/dotfiles/scripts/util/launch_polybar.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/lfxgnmovlsze1.png
-exec_always --no-startup-id syncthing --no-browser
+exec --no-startup-id syncthing --no-browser
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/dotfiles/scripts/util/dual_monitors.sh
 
