@@ -83,15 +83,15 @@
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup)
 
-  ;; Limit task states to [ ], [x], and [-]
+  ;; Set TODO keywords
   (setq org-todo-keywords
-        '((sequence "[ ]" "[x]" "[-]")))
+        '((sequence "TODO(t)" "PROGRESS(p)" "|" "DONE(d)")))
 
   ;; Color coding for task states
   (setq org-todo-keyword-faces
-        '(("[ ]" . (:foreground "#fe8019" :weight bold))    ; Orange for TODO
-          ("[x]" . (:foreground "#b8bb26" :weight bold))    ; Green for DONE
-          ("[-]" . (:foreground "#fb4934" :weight bold))))  ; Red for CANCELLED
+        '(("TODO" . (:foreground "#fe8019" :weight bold))      ; Orange for TODO
+          ("PROGRESS" . (:foreground "#fabd2f" :weight bold))  ; Yellow for PROGRESS
+          ("DONE" . (:foreground "#b8bb26" :weight bold))))    ; Green for DONE
 
   ;; Enable org-fancy-priorities for icons
   (require 'org-fancy-priorities)
