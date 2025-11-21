@@ -1,9 +1,11 @@
-import = [
-	"~/.config/alacritty/themes/themes/gruvbox_dark.toml"
-]
 
 [keyboard]
 bindings = [
   { key = "J", mods = "Alt", chars = "\u001bb" },  # Alt+J - backward one word
   { key = "K", mods = "Alt", chars = "\u001bf" },  # Alt+K - forward one word
+]
+
+[general]
+import = [
+	"~/.config/alacritty/themes/themes/gruvbox_dark.toml"
 ]
