@@ -32,7 +32,7 @@ brew install stow      # macOS
 
 # Clone and apply dotfiles
 cd ~
-git clone <your-repo-url> dotfiles
+git clone git@github.com:mdrmono/dotfiles.git dotfiles
 cd dotfiles
 stow .
 ```
