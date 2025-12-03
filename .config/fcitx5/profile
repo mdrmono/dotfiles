@@ -14,13 +14,13 @@ Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=keyboard-es
+Name=pinyin
 # Layout
 Layout=
 
 [Groups/0/Items/2]
 # Name
-Name=pinyin
+Name=keyboard-es
 # Layout
 Layout=
 

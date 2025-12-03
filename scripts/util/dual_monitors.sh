@@ -10,6 +10,31 @@ done
 # Detect connected monitors
 MONITORS=($(xrandr --query | grep " connected" | cut -d" " -f1))
 
+# Function to identify laptop's built-in display
+get_laptop_display() {
+  for mon in "${MONITORS[@]}"; do
+    # Common names for laptop built-in displays
+    if [[ "$mon" =~ ^(eDP|LVDS|DSI) ]]; then
+      echo "$mon"
+      return 0
+    fi
+  done
+  return 1
+}
+
+# Reorder monitors array to put laptop display first if it exists
+LAPTOP_DISPLAY=$(get_laptop_display)
+if [ -n "$LAPTOP_DISPLAY" ]; then
+  # Create new array with laptop display first
+  REORDERED=("$LAPTOP_DISPLAY")
+  for mon in "${MONITORS[@]}"; do
+    if [ "$mon" != "$LAPTOP_DISPLAY" ]; then
+      REORDERED+=("$mon")
+    fi
+  done
+  MONITORS=("${REORDERED[@]}")
+fi
+
 get_highest_mode() {
   local MON=$1
   local best_mode=""
