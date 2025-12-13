@@ -1,54 +1,49 @@
 {
-    "python.defaultInterpreterPath": "/home/linuxbrew/.linuxbrew/bin/python3",
-    "jupyter.notebookFileRoot": "${workspaceFolder} ",
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "editor.stickyScroll.enabled": false,
-    "redhat.telemetry.enabled": false,
-    "git.openRepositoryInParentFolders": "never",
-    "editor.tabSize": 4,
-    "editor.guides.indentation": true,
-    "editor.indentSize": 4,
-    "editor.fontFamily": "Hack Nerd Font, monospace",
-    "editor.fontLigatures": true,
-    "workbench.activityBar.location": "hidden",
-    "workbench.statusBar.visible": true,
-    "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "workbench.layoutControl.enabled": false,
-    "chat.commandCenter.enabled": false,
-    "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.colorTheme": "Gruvbox Dark Medium",
-    "editor.largeFileOptimizations": false,
-    "keyboard.dispatch": "keyCode",
-    "editor.formatOnSave": true,
-    "vim.leader": "<space>", // Example leader key
-    "vim.useCtrlKeys": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                ":",
-                "w",
-                "<CR>"
-            ],
-            "commands": [
-                "workbench.action.files.save"
-            ]
-        }
-    ],
-    "[python]": {
-        "editor.tabSize": 4,
-        "editor.insertSpaces": true
-    },
-    "editor.renderWhitespace": "none",
-    "vim.showmodename": true,
-    "vim.statusBarColorControl": false,
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#282828",
-        "statusBar.foreground": "#ebdbb2",
-        "statusBar.noFolderBackground": "#282828",
-        "statusBarItem.remoteBackground": "#282828"
+  "python.defaultInterpreterPath": "/bin/python3",
+  "jupyter.notebookFileRoot": "${workspaceFolder} ",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "editor.stickyScroll.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "git.openRepositoryInParentFolders": "never",
+  "editor.tabSize": 4,
+  "editor.guides.indentation": true,
+  "editor.indentSize": 4,
+  "editor.fontFamily": "Hack Nerd Font, monospace",
+  "editor.fontLigatures": true,
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": true,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.layoutControl.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "editor.largeFileOptimizations": false,
+  "keyboard.dispatch": "keyCode",
+  "editor.formatOnSave": true,
+  "vim.leader": "<space>", // Example leader key
+  "vim.useCtrlKeys": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [":", "w", "<CR>"],
+      "commands": ["workbench.action.files.save"]
     }
+  ],
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "editor.renderWhitespace": "none",
+  "vim.showmodename": true,
+  "vim.statusBarColorControl": false,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#282828",
+    "statusBar.foreground": "#ebdbb2",
+    "statusBar.noFolderBackground": "#282828",
+    "statusBarItem.remoteBackground": "#282828"
+  },
+  "python.REPL.enableREPLSmartSend": false
 }
