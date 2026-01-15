@@ -1,9 +1,13 @@
 
-[keyboard]
-bindings = [
-  { key = "J", mods = "Alt", chars = "\u001bb" },  # Alt+J - backward one word
-  { key = "K", mods = "Alt", chars = "\u001bf" },  # Alt+K - forward one word
-]
+[[keyboard.bindings]]
+key = "J"
+mods = "Alt"
+chars = "\u001bb"
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Alt"
+chars = "\u001bf"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }

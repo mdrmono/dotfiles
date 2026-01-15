@@ -1,0 +1,7 @@
+# Disabled binding from terminal-setup conflict.
+# Re-enable by moving this block back into alacritty.toml.
+#
+#[[keyboard.bindings]]
+#key = "Return"
+#mods = "Shift"
+#chars = "\u001b\r"
