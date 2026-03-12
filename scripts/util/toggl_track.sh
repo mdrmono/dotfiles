@@ -40,17 +40,17 @@ toggle)
 esac
 
 projects=(
-  "201000779:Active Listening"
-  "201000768:Anki"
-  "201000782:Chinese Reading"
-  "201000775:Passive Listening"
+  "218755355:French Active Listening"
+  "218755356:French Anki"
+  "218755357:French Reading"
+  "218755358:French Passive Listening"
 )
 
 # Build a list for rofi
 choices=$(printf "%s\n" "${projects[@]#*:}")
 
 # Show rofi menu
-selected=$(echo "$choices" | rofi -dmenu -p "Select Project")
+selected=$(echo "$choices" | rofi -dmenu -p "Select Activity")
 
 # Exit if nothing selected
 [ -z "$selected" ] && exit 1
