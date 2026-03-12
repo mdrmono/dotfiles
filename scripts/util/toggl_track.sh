@@ -40,6 +40,10 @@ toggle)
 esac
 
 projects=(
+  "201000779:Chinese Active Listening"
+  "201000768:Chinese Anki"
+  "201000782:Chinese Reading"
+  "201000775:Chinese Passive Listening"
   "218755355:French Active Listening"
   "218755356:French Anki"
   "218755357:French Reading"
