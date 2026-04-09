@@ -28,8 +28,14 @@
   "vim.useCtrlKeys": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [":", "w", "<CR>"],
-      "commands": ["workbench.action.files.save"]
+      "before": [
+        ":",
+        "w",
+        "<CR>"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
     }
   ],
   "[python]": {
@@ -45,5 +51,18 @@
     "statusBar.noFolderBackground": "#282828",
     "statusBarItem.remoteBackground": "#282828"
   },
-  "python.REPL.enableREPLSmartSend": false
+  "python.REPL.enableREPLSmartSend": false,
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    ".claude/rules": true,
+    "~/.copilot/instructions": true,
+    "~/.claude/rules": true,
+    "/tmp/postman-collections-post-response.instructions.md": true,
+    "/tmp/postman-collections-pre-request.instructions.md": true,
+    "/tmp/postman-folder-post-response.instructions.md": true,
+    "/tmp/postman-folder-pre-request.instructions.md": true,
+    "/tmp/postman-http-request-post-response.instructions.md": true,
+    "/tmp/postman-http-request-pre-request.instructions.md": true
+  },
+  "chat.viewSessions.orientation": "stacked"
 }
