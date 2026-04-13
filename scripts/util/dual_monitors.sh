@@ -135,8 +135,8 @@ elif [ ${#MONITORS[@]} -eq 2 ]; then
   xrandr --output "${MONITORS[0]}" --primary --mode "$1" --rate "$2"
 
   set -- $mode_rate1
-  echo "Setting ${MONITORS[1]} to mode $1 at ${2}Hz (right of ${MONITORS[0]})"
-  xrandr --output "${MONITORS[1]}" --mode "$1" --rate "$2" --right-of "${MONITORS[0]}"
+  echo "Setting ${MONITORS[1]} to mode $1 at ${2}Hz (left of ${MONITORS[0]})"
+  xrandr --output "${MONITORS[1]}" --mode "$1" --rate "$2" --left-of "${MONITORS[0]}"
 
 else
   echo "Setting up ${#MONITORS[@]} monitors"
@@ -160,8 +160,8 @@ else
     fi
 
     set -- $mode_rate
-    echo "Setting $MON to mode $1 at ${2}Hz (right of $PREV)"
-    xrandr --output "$MON" --mode "$1" --rate "$2" --right-of "$PREV"
+    echo "Setting $MON to mode $1 at ${2}Hz (left of $PREV)"
+    xrandr --output "$MON" --mode "$1" --rate "$2" --left-of "$PREV"
     PREV="$MON"
   done
 fi
