@@ -10,8 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $fm eDP-1
-set $sm HDMI-2
+set $primary_display eDP-1-2 eDP-1
+set $secondary_display HDMI-0 HDMI-2 DP-1-0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -181,15 +181,15 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # output workspace on monitor
-workspace 1 output $fm
-workspace 2 output $sm
-workspace 3 output $fm
-workspace 4 output $sm
-workspace 5 output $fm
-workspace 6 output $sm
-workspace 7 output $fm
-workspace 8 output $sm
-workspace 9 output $fm
+workspace 1 output $primary_display
+workspace 2 output $secondary_display
+workspace 3 output $primary_display
+workspace 4 output $secondary_display
+workspace 5 output $primary_display
+workspace 6 output $secondary_display
+workspace 7 output $primary_display
+workspace 8 output $secondary_display
+workspace 9 output $primary_display
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
