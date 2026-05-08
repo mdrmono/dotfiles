@@ -22,17 +22,16 @@ get_laptop_display() {
   return 1
 }
 
-# Reorder monitors array to put laptop display first if it exists
+# Prefer an external display as primary, keeping the laptop display to its left.
 LAPTOP_DISPLAY=$(get_laptop_display)
-if [ -n "$LAPTOP_DISPLAY" ]; then
-  # Create new array with laptop display first
-  REORDERED=("$LAPTOP_DISPLAY")
+PRIMARY_DISPLAY="${MONITORS[0]}"
+if [ -n "$LAPTOP_DISPLAY" ] && [ ${#MONITORS[@]} -gt 1 ]; then
   for mon in "${MONITORS[@]}"; do
     if [ "$mon" != "$LAPTOP_DISPLAY" ]; then
-      REORDERED+=("$mon")
+      PRIMARY_DISPLAY="$mon"
+      break
     fi
   done
-  MONITORS=("${REORDERED[@]}")
 fi
 
 get_highest_mode() {
@@ -122,8 +121,19 @@ if [ ${#MONITORS[@]} -eq 1 ]; then
 elif [ ${#MONITORS[@]} -eq 2 ]; then
   echo "Setting up dual monitors"
 
-  mode_rate0=$(get_highest_mode "${MONITORS[0]}")
-  mode_rate1=$(get_highest_mode "${MONITORS[1]}")
+  if [ -n "$LAPTOP_DISPLAY" ] && [ "$PRIMARY_DISPLAY" != "$LAPTOP_DISPLAY" ]; then
+    SECONDARY_DISPLAY="$LAPTOP_DISPLAY"
+  else
+    for mon in "${MONITORS[@]}"; do
+      if [ "$mon" != "$PRIMARY_DISPLAY" ]; then
+        SECONDARY_DISPLAY="$mon"
+        break
+      fi
+    done
+  fi
+
+  mode_rate0=$(get_highest_mode "$PRIMARY_DISPLAY")
+  mode_rate1=$(get_highest_mode "$SECONDARY_DISPLAY")
 
   if [ -z "$mode_rate0" ] || [ -z "$mode_rate1" ]; then
     echo "Error: Could not determine best modes for monitors"
@@ -131,28 +141,48 @@ elif [ ${#MONITORS[@]} -eq 2 ]; then
   fi
 
   set -- $mode_rate0
-  echo "Setting ${MONITORS[0]} (primary) to mode $1 at ${2}Hz"
-  xrandr --output "${MONITORS[0]}" --primary --mode "$1" --rate "$2"
+  echo "Setting $PRIMARY_DISPLAY (primary) to mode $1 at ${2}Hz"
+  xrandr --output "$PRIMARY_DISPLAY" --primary --mode "$1" --rate "$2"
 
   set -- $mode_rate1
-  echo "Setting ${MONITORS[1]} to mode $1 at ${2}Hz (right of ${MONITORS[0]})"
-  xrandr --output "${MONITORS[1]}" --mode "$1" --rate "$2" --right-of "${MONITORS[0]}"
+  if [ "$SECONDARY_DISPLAY" = "$LAPTOP_DISPLAY" ]; then
+    echo "Setting $SECONDARY_DISPLAY to mode $1 at ${2}Hz (left of $PRIMARY_DISPLAY)"
+    xrandr --output "$SECONDARY_DISPLAY" --mode "$1" --rate "$2" --left-of "$PRIMARY_DISPLAY"
+  else
+    echo "Setting $SECONDARY_DISPLAY to mode $1 at ${2}Hz (right of $PRIMARY_DISPLAY)"
+    xrandr --output "$SECONDARY_DISPLAY" --mode "$1" --rate "$2" --right-of "$PRIMARY_DISPLAY"
+  fi
 
 else
   echo "Setting up ${#MONITORS[@]} monitors"
 
-  mode_rate0=$(get_highest_mode "${MONITORS[0]}")
+  mode_rate0=$(get_highest_mode "$PRIMARY_DISPLAY")
   if [ -z "$mode_rate0" ]; then
-    echo "Error: Could not determine best mode for primary monitor ${MONITORS[0]}"
+    echo "Error: Could not determine best mode for primary monitor $PRIMARY_DISPLAY"
     exit 1
   fi
 
   set -- $mode_rate0
-  echo "Setting ${MONITORS[0]} (primary) to mode $1 at ${2}Hz"
-  xrandr --output "${MONITORS[0]}" --primary --mode "$1" --rate "$2"
+  echo "Setting $PRIMARY_DISPLAY (primary) to mode $1 at ${2}Hz"
+  xrandr --output "$PRIMARY_DISPLAY" --primary --mode "$1" --rate "$2"
 
-  PREV="${MONITORS[0]}"
-  for MON in "${MONITORS[@]:1}"; do
+  if [ -n "$LAPTOP_DISPLAY" ] && [ "$LAPTOP_DISPLAY" != "$PRIMARY_DISPLAY" ]; then
+    mode_rate=$(get_highest_mode "$LAPTOP_DISPLAY")
+    if [ -n "$mode_rate" ]; then
+      set -- $mode_rate
+      echo "Setting $LAPTOP_DISPLAY to mode $1 at ${2}Hz (left of $PRIMARY_DISPLAY)"
+      xrandr --output "$LAPTOP_DISPLAY" --mode "$1" --rate "$2" --left-of "$PRIMARY_DISPLAY"
+    else
+      echo "Warning: Could not determine best mode for $LAPTOP_DISPLAY, skipping"
+    fi
+  fi
+
+  PREV="$PRIMARY_DISPLAY"
+  for MON in "${MONITORS[@]}"; do
+    if [ "$MON" = "$PRIMARY_DISPLAY" ] || [ "$MON" = "$LAPTOP_DISPLAY" ]; then
+      continue
+    fi
+
     mode_rate=$(get_highest_mode "$MON")
     if [ -z "$mode_rate" ]; then
       echo "Warning: Could not determine best mode for $MON, skipping"
