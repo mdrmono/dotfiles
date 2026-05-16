@@ -190,6 +190,7 @@ workspace 6 output $secondary_display
 workspace 7 output $primary_display
 workspace 8 output $secondary_display
 workspace 9 output $primary_display
+workspace 10 output $secondary_display
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
