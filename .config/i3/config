@@ -11,7 +11,8 @@
 
 set $mod Mod4
 set $primary_display DP-0 HDMI-0 HDMI-2 DP-1-0
-set $secondary_display eDP-1-2 eDP-1
+set $secondary_display eDP-1-1 eDP-1-2 eDP-1
+set $laptop_display eDP-1-1 eDP-1-2 eDP-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -184,13 +185,13 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace 1 output $primary_display
 workspace 2 output $secondary_display
 workspace 3 output $primary_display
-workspace 4 output $secondary_display
+workspace 4 output $laptop_display
 workspace 5 output $primary_display
-workspace 6 output $secondary_display
+workspace 6 output $laptop_display
 workspace 7 output $primary_display
-workspace 8 output $secondary_display
+workspace 8 output $laptop_display
 workspace 9 output $primary_display
-workspace 10 output $secondary_display
+workspace 10 output $laptop_display
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
