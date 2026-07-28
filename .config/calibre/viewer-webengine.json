@@ -1,28 +1,28 @@
 {
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 1030,
+      "height": 1032,
       "width": 1920,
       "x": 1920,
-      "y": 50
+      "y": 48
     },
     "full_screened": false,
     "geometry": {
-      "height": 1028,
-      "width": 1916,
-      "x": 1922,
-      "y": 50
+      "height": 1032,
+      "width": 1920,
+      "x": 1920,
+      "y": 48
     },
     "maximized": false,
     "normal_geometry": {
-      "height": 1028,
-      "width": 1916,
-      "x": 1922,
-      "y": 50
+      "height": 1032,
+      "width": 1920,
+      "x": 1920,
+      "y": 48
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAeAAAAAMgAADv8AAAQ3AAAHggAAADIAAA79AAAENQAAAAEAAAAAB4AAAAeCAAAAMgAADv0AAAQ1"
+      "__value__": "AdnQywADAAAAAAeAAAAAMAAADv8AAAQ3AAAHgAAAADAAAA7/AAAENwAAAAEAAAAAB4AAAAeAAAAAMAAADv8AAAQ3"
     },
     "screen": {
       "depth": 24,
@@ -36,7 +36,7 @@
       "index_in_screens_list": 1,
       "manufacturer": "HGC",
       "model": "CR270QA",
-      "name": "DP-1-0",
+      "name": "DP-0",
       "serial": "0000000000000",
       "size_in_logical_pixels": {
         "height": 1080,
@@ -52,7 +52,7 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEEAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAAHfAAABAQAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEEAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAAHgAAABAgAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "saved-search-settings": {
@@ -71,6 +71,60 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "key": "/home/manuelin/Downloads/CV_Arturo_Darko_Professional.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/CV_Arturo_Darko_Professional.pdf",
+        "timestamp": "2026-04-21T03:30:28.668Z",
+        "title": "CV - Arturo Darko Vásquez Cabrera"
+      },
+      {
+        "authors": [
+          "Manuel Delfin Rieth (Print)"
+        ],
+        "key": "/home/manuelin/Downloads/CV - Manuel Delfin Rieth (Print).pdf",
+        "pathtoebook": "/home/manuelin/Downloads/CV - Manuel Delfin Rieth (Print).pdf",
+        "timestamp": "2026-03-10T22:43:57.619Z",
+        "title": "CV - Manuel Delfin Rieth (Print)"
+      },
+      {
+        "key": "/home/manuelin/Desktop/cursos/SFU/archivo/Spring 2023/CMPT 225/Assignments/project/cmpt225-spring23-project/caca.txt",
+        "pathtoebook": "/home/manuelin/Desktop/cursos/SFU/archivo/Spring 2023/CMPT 225/Assignments/project/cmpt225-spring23-project/caca.txt",
+        "timestamp": "2026-01-06T20:03:39.352Z",
+        "title": "caca"
+      },
+      {
+        "authors": [
+          "sunat.gob.pe"
+        ],
+        "key": "/home/manuelin/Downloads/10707591493-R01-E001-6.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/10707591493-R01-E001-6.pdf",
+        "timestamp": "2026-01-06T15:55:50.585Z",
+        "title": "10707591493-R01-E001-6"
+      },
+      {
+        "key": "/home/manuelin/Downloads/Certificado psicologico Manuel Delfin.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/Certificado psicologico Manuel Delfin.pdf",
+        "timestamp": "2026-01-06T15:55:28.643Z",
+        "title": "Certificado psicologico Manuel Delfin"
+      },
+      {
+        "authors": [
+          "Complete Solution"
+        ],
+        "key": "/home/manuelin/Downloads/GGE 3122 Assignment 4 - Complete Solution.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/GGE 3122 Assignment 4 - Complete Solution.pdf",
+        "timestamp": "2026-01-06T15:55:10.508Z",
+        "title": "GGE 3122 Assignment 4 - Complete Solution"
+      },
+      {
+        "authors": [
+          "Julio Martinez"
+        ],
+        "key": "/home/manuelin/Downloads/CVU-2025_JUNIO.pdf",
+        "pathtoebook": "/home/manuelin/Downloads/CVU-2025_JUNIO.pdf",
+        "timestamp": "2026-01-06T15:45:14.187Z",
+        "title": "CVU-2025 JUNIO"
+      },
       {
         "key": "/home/manuelin/Desktop/reads/calibre_library/Unknown/The Mythical Man-Month Essays on Software Engineering, Anniversary Edition (Frederick P. Brooks) (7)/The Mythical Man-Month Essays on Software - Unknown.djvu",
         "pathtoebook": "/home/manuelin/Desktop/reads/calibre_library/Unknown/The Mythical Man-Month Essays on Software Engineering, Anniversary Edition (Frederick P. Brooks) (7)/The Mythical Man-Month Essays on Software - Unknown.djvu",
@@ -115,15 +169,6 @@
         "pathtoebook": "/home/manuelin/Downloads/Modelos de Proyectos Catastrales en Perú_ Análisis Integral de Innovación Tecnológica y Desafíos de Implementación.pdf",
         "timestamp": "2025-10-23T17:03:53.042Z",
         "title": "Modelos de Proyectos Catastrales en Perú: Análisis Integral de Innovación Tecnológica y Desafíos de Implementación"
-      },
-      {
-        "authors": [
-          "Complete Solution"
-        ],
-        "key": "/home/manuelin/Downloads/GGE 3122 Assignment 4 - Complete Solution.pdf",
-        "pathtoebook": "/home/manuelin/Downloads/GGE 3122 Assignment 4 - Complete Solution.pdf",
-        "timestamp": "2025-10-15T21:00:02.561Z",
-        "title": "GGE 3122 Assignment 4 - Complete Solution"
       },
       {
         "key": "/home/manuelin/Downloads/301540153.pdf",
@@ -196,45 +241,6 @@
         "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/archivo/CMPT 353/vpn.txt",
         "timestamp": "2025-05-23T16:36:20.983Z",
         "title": "vpn"
-      },
-      {
-        "key": "/media/manuelin/a9059d4a-2525-45ba-a60c-40c1bccc8974/games/Hollow Knight/Read Me.txt",
-        "pathtoebook": "/media/manuelin/a9059d4a-2525-45ba-a60c-40c1bccc8974/games/Hollow Knight/Read Me.txt",
-        "timestamp": "2025-05-17T04:04:28.002Z",
-        "title": "Read Me"
-      },
-      {
-        "key": "/home/manuelin/Desktop/reads/caca.txt",
-        "pathtoebook": "/home/manuelin/Desktop/reads/caca.txt",
-        "timestamp": "2025-05-17T02:41:02.192Z",
-        "title": "caca"
-      },
-      {
-        "key": "/home/manuelin/Desktop/passphrases.txt",
-        "pathtoebook": "/home/manuelin/Desktop/passphrases.txt",
-        "timestamp": "2025-05-17T02:40:48.069Z",
-        "title": "passphrases"
-      },
-      {
-        "key": "/home/manuelin/Desktop/projects/website/themes/nightfall/README.md",
-        "pathtoebook": "/home/manuelin/Desktop/projects/website/themes/nightfall/README.md",
-        "timestamp": "2025-05-09T16:31:31.695Z",
-        "title": "README"
-      },
-      {
-        "key": "/home/manuelin/Calibre Library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
-        "pathtoebook": "/home/manuelin/Calibre Library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
-        "timestamp": "2025-04-28T13:38:50.231Z",
-        "title": "From Outside In (J. Marvin Brown) (Z-Library)"
-      },
-      {
-        "authors": [
-          "Erin Stern"
-        ],
-        "key": "/home/manuelin/Calibre Library/Erin Stern/The Bodybuilder's Meal Prep Cookbook (4)/The Bodybuilder's Meal Prep Cookbook - Erin Stern.epub",
-        "pathtoebook": "/home/manuelin/Calibre Library/Erin Stern/The Bodybuilder's Meal Prep Cookbook (4)/The Bodybuilder's Meal Prep Cookbook - Erin Stern.epub",
-        "timestamp": "2025-01-26T22:32:14.704Z",
-        "title": "The Bodybuilder's Meal Prep Cookbook"
       }
     ]
   },

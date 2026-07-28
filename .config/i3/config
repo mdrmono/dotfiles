@@ -31,6 +31,7 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/lfxgnmovlsze1.p
 exec --no-startup-id ~/dotfiles/scripts/util/battery_alert.sh
 exec --no-startup-id syncthing --no-browser
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # ==============================
 # Chinese input (fcitx5 + Pinyin)
