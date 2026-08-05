@@ -14,9 +14,18 @@ set $primary_display DP-0 HDMI-0 HDMI-2 DP-1-0
 set $secondary_display eDP-1-1 eDP-1-2 eDP-1
 set $laptop_display eDP-1-1 eDP-1-2 eDP-1
 
+# Shared desktop palette (matches Dunst and Polybar)
+set $background #1A1412
+set $background_alt #282421
+set $foreground #D8D2CA
+set $accent #3C7B82
+set $secondary #567734
+set $urgent #B04027
+set $disabled #6E6863
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:JetBrainsMono Nerd Font 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -230,11 +239,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Window border size
-default_border pixel 0
+# Compact framed windows inspired by the reference setup
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 4
+gaps outer 6
 
-# Window colors
-client.focused          #ff0000 #000000 #ffffff #ff0000 #ff0000
+# class                 border          background      text          indicator       child_border
+client.focused          $accent         $background_alt $foreground   $secondary       $accent
+client.focused_inactive $background_alt $background_alt $disabled     $background_alt  $background_alt
+client.unfocused        $background     $background     $disabled     $background      $background
+client.urgent           $urgent         $urgent         $foreground   $urgent          $urgent
+client.placeholder      $background_alt $background_alt $disabled     $background_alt  $background_alt
+client.background       $background
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
