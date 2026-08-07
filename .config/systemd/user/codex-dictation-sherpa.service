@@ -1,0 +1,13 @@
+[Unit]
+Description=Warm local Sherpa model for Codex dictation
+After=basic.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node %h/.local/bin/codex-dictation-sherpa-daemon.js %t/codex-dictation-%U/sherpa.sock
+Environment=CODEX_DICTATION_SHERPA_IDLE_MS=0
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

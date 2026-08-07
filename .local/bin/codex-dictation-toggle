@@ -6,25 +6,34 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 
 runtime_parent="${XDG_RUNTIME_DIR:-/tmp}"
 state_dir="${runtime_parent}/codex-dictation-${UID}"
-unit_name="codex-dictation-record.service"
 audio_file="${state_dir}/recording.wav"
 window_file="${state_dir}/window-id"
 lock_file="${state_dir}/toggle.lock"
 record_log="${state_dir}/recording.log"
 transcribe_log="${state_dir}/transcription.log"
-model_file="${CODEX_DICTATION_MODEL:-${HOME}/.local/share/codex-dictation/models/ggml-base.en.bin}"
-whisper_bin="${CODEX_DICTATION_WHISPER:-/home/linuxbrew/.linuxbrew/bin/whisper-cli}"
-vocabulary_prompt="OpenAI Codex. Codex is a coding agent. GitHub, TypeScript, JavaScript, Python, Linux, Alacritty, PipeWire, and Whisper."
+sherpa_node="${CODEX_DICTATION_SHERPA_NODE:-${HOME}/.local/bin/codex-dictation-sherpa.js}"
+sherpa_daemon="${CODEX_DICTATION_SHERPA_DAEMON:-${HOME}/.local/bin/codex-dictation-sherpa-daemon.js}"
+sherpa_client="${CODEX_DICTATION_SHERPA_CLIENT:-${HOME}/.local/bin/codex-dictation-sherpa-client.js}"
+capture_daemon="${CODEX_DICTATION_CAPTURE_DAEMON:-${HOME}/.local/bin/codex-dictation-capture-daemon.js}"
+capture_client="${CODEX_DICTATION_CAPTURE_CLIENT:-${HOME}/.local/bin/codex-dictation-capture-client.js}"
+live_worker="${CODEX_DICTATION_LIVE_WORKER:-${HOME}/.local/bin/codex-dictation-live.js}"
+sherpa_model_dir="${CODEX_DICTATION_SHERPA_MODEL_DIR:-${HOME}/.paseo/models/local-speech/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8}"
+sherpa_native_dir="${CODEX_DICTATION_SHERPA_NATIVE_DIR:-/opt/Paseo/resources/app.asar.unpacked/node_modules/sherpa-onnx-linux-x64}"
+node_bin="${CODEX_DICTATION_NODE:-/usr/bin/node}"
+daemon_unit="codex-dictation-sherpa.service"
+daemon_socket="${state_dir}/sherpa.sock"
+daemon_idle_ms="${CODEX_DICTATION_SHERPA_IDLE_MS:-600000}"
+capture_unit="codex-dictation-capture.service"
+capture_socket="${state_dir}/capture.sock"
+pre_roll_ms="${CODEX_DICTATION_PRE_ROLL_MS:-500}"
+status_file="${state_dir}/status"
+live_unit="codex-dictation-partial.service"
+snapshot_file="${state_dir}/partial.wav"
+partial_text_file="${state_dir}/partial-transcript"
+final_text_file="${state_dir}/final-transcript"
 
 mkdir -p "${state_dir}"
 chmod 700 "${state_dir}"
-
-notify() {
-    /usr/bin/notify-send \
-        --app-name="Codex Dictation" \
-        --icon="audio-input-microphone" \
-        "$1" "$2" 2>/dev/null || true
-}
 
 delete_if_present() {
     if [[ -f "$1" ]]; then
@@ -32,148 +41,335 @@ delete_if_present() {
     fi
 }
 
-active_state() {
-    { /usr/bin/systemctl --user show --property=ActiveState --value "${unit_name}" 2>/dev/null || true; } | /usr/bin/head -n 1
+set_status() {
+    printf '%s\n' "$1" >"${status_file}"
+}
+
+clear_status() {
+    delete_if_present "${status_file}"
 }
 
 is_recording() {
-    local state
-    state="$(active_state)"
-    [[ "${state}" == "active" || "${state}" == "activating" || "${state}" == "deactivating" ]]
+    [[ "$(/usr/bin/head -n 1 "${status_file}" 2>/dev/null || true)" == "recording" ]]
 }
 
 check_dependencies() {
-    if [[ ! -x "${whisper_bin}" || ! -r "${model_file}" ]]; then
-        notify "Codex dictation unavailable" "Local Whisper engine or model is missing."
+    if [[ ! -x "${node_bin}" || ! -r "${sherpa_node}" || ! -r "${sherpa_daemon}" || \
+        ! -r "${sherpa_client}" || \
+        ! -r "${capture_daemon}" || ! -r "${capture_client}" || ! -r "${live_worker}" || \
+        ! -r "${sherpa_native_dir}/sherpa-onnx.node" || \
+        ! -r "${sherpa_model_dir}/encoder.int8.onnx" || \
+        ! -r "${sherpa_model_dir}/decoder.int8.onnx" || \
+        ! -r "${sherpa_model_dir}/joiner.int8.onnx" || \
+        ! -r "${sherpa_model_dir}/tokens.txt" ]]; then
         return 1
     fi
     return 0
 }
 
-start_recording() {
-    if is_recording; then
-        notify "Codex dictation" "Already recording; release Mod+Z to stop."
+ensure_capture() {
+    local state unit_file_state
+    state="$(/usr/bin/systemctl --user show --property=ActiveState --value "${capture_unit}" 2>/dev/null || true)"
+    if [[ "${state}" == "active" || "${state}" == "activating" ]]; then
         return 0
     fi
-    check_dependencies || return 1
 
-    delete_if_present "${audio_file}"
-    delete_if_present "${record_log}"
-    delete_if_present "${transcribe_log}"
-
-    local window_id
-    if ! window_id="$(/usr/local/bin/xdotool getactivewindow 2>/dev/null)" || [[ -z "${window_id}" ]]; then
-        notify "Codex dictation unavailable" "Could not identify the active terminal window."
-        return 1
+    unit_file_state="$(/usr/bin/systemctl --user show --property=UnitFileState --value "${capture_unit}" 2>/dev/null || true)"
+    if [[ "${unit_file_state}" == "enabled" || "${unit_file_state}" == "enabled-runtime" ]]; then
+        /usr/bin/systemctl --user start "${capture_unit}" 2>/dev/null
+        return $?
     fi
-    printf '%s\n' "${window_id}" >"${window_file}"
 
+    /usr/bin/systemctl --user reset-failed "${capture_unit}" 2>/dev/null || true
     if ! /usr/bin/systemd-run \
         --user \
         --quiet \
         --collect \
-        --unit="${unit_name}" \
+        --unit="${capture_unit}" \
         --property=Type=exec \
-        --property=RuntimeMaxSec=5min \
-        /usr/bin/pw-record \
-        --rate 16000 \
-        --channels 1 \
-        --format s16 \
-        "${audio_file}" \
-        >>"${record_log}" 2>&1; then
-        notify "Codex dictation failed" "The microphone recorder could not start."
-        delete_if_present "${window_file}"
+        env \
+        CODEX_DICTATION_PRE_ROLL_MS="${pre_roll_ms}" \
+        "${node_bin}" "${capture_daemon}" "${capture_socket}"; then
         return 1
     fi
-
-    notify "Codex dictation recording" "Speak now; release Mod+Z when finished."
+    return 0
 }
 
-stop_recording() {
-    if ! is_recording; then
+ensure_daemon() {
+    local state unit_file_state
+    state="$(/usr/bin/systemctl --user show --property=ActiveState --value "${daemon_unit}" 2>/dev/null || true)"
+    if [[ "${state}" == "active" || "${state}" == "activating" ]]; then
         return 0
     fi
 
-    /usr/bin/systemctl --user kill --signal=SIGINT "${unit_name}" 2>/dev/null || true
-    for _ in {1..50}; do
-        if ! is_recording; then
-            break
+    unit_file_state="$(/usr/bin/systemctl --user show --property=UnitFileState --value "${daemon_unit}" 2>/dev/null || true)"
+    if [[ "${unit_file_state}" == "enabled" || "${unit_file_state}" == "enabled-runtime" ]]; then
+        /usr/bin/systemctl --user start "${daemon_unit}" 2>/dev/null
+        return $?
+    fi
+
+    /usr/bin/systemctl --user reset-failed "${daemon_unit}" 2>/dev/null || true
+    if ! /usr/bin/systemd-run \
+        --user \
+        --quiet \
+        --collect \
+        --unit="${daemon_unit}" \
+        --property=Type=exec \
+        env \
+        CODEX_DICTATION_SHERPA_IDLE_MS="${daemon_idle_ms}" \
+        CODEX_DICTATION_SHERPA_MODEL_DIR="${sherpa_model_dir}" \
+        CODEX_DICTATION_SHERPA_NATIVE_DIR="${sherpa_native_dir}" \
+        CODEX_DICTATION_SHERPA_THREADS="${CODEX_DICTATION_SHERPA_THREADS:-4}" \
+        "${node_bin}" "${sherpa_daemon}" "${daemon_socket}"; then
+        return 1
+    fi
+    return 0
+}
+
+start_live_worker() {
+    local window_id="$1"
+    if [[ "${CODEX_DICTATION_NO_INSERT:-0}" == "1" ]]; then
+        return 0
+    fi
+
+    /usr/bin/systemctl --user stop "${live_unit}" 2>/dev/null || true
+    /usr/bin/systemctl --user reset-failed "${live_unit}" 2>/dev/null || true
+    /usr/bin/systemd-run \
+        --user \
+        --quiet \
+        --collect \
+        --unit="${live_unit}" \
+        --property=Type=exec \
+        --property=RuntimeMaxSec=5min \
+        env \
+        CODEX_DICTATION_LIVE_INTERVAL_MS="${CODEX_DICTATION_LIVE_INTERVAL_MS:-1000}" \
+        "${node_bin}" "${live_worker}" watch \
+        "${capture_socket}" "${daemon_socket}" "${snapshot_file}" \
+        "${window_id}" "${status_file}" "${partial_text_file}"
+}
+
+stop_live_worker() {
+    /usr/bin/systemctl --user stop "${live_unit}" 2>/dev/null || true
+}
+
+discard_partial_text() {
+    local window_id="$1"
+    printf '\n' >"${final_text_file}"
+    if [[ "${CODEX_DICTATION_NO_INSERT:-0}" != "1" && -n "${window_id}" ]]; then
+        "${node_bin}" "${live_worker}" replace \
+            "${window_id}" "${partial_text_file}" "${final_text_file}" \
+            2>>"${transcribe_log}" || true
+    fi
+    delete_if_present "${snapshot_file}"
+    delete_if_present "${partial_text_file}"
+    delete_if_present "${final_text_file}"
+}
+
+replace_with_final_text() {
+    local window_id="$1"
+    local text="$2"
+    printf '%s\n' "${text}" >"${final_text_file}"
+    if ! "${node_bin}" "${live_worker}" replace \
+        "${window_id}" "${partial_text_file}" "${final_text_file}" \
+        2>>"${transcribe_log}"; then
+        return 1
+    fi
+    delete_if_present "${snapshot_file}"
+    delete_if_present "${partial_text_file}"
+    delete_if_present "${final_text_file}"
+    return 0
+}
+
+process_tree_contains_codex() {
+    local root_pid="$1"
+    local current_pid command_name command_line child
+    local -a pending=("${root_pid}")
+    local index=0
+
+    while (( index < ${#pending[@]} )); do
+        current_pid="${pending[index]}"
+        ((index += 1))
+
+        command_name="$(/usr/bin/ps -o comm= -p "${current_pid}" 2>/dev/null || true)"
+        command_line="$(/usr/bin/ps -o args= -p "${current_pid}" 2>/dev/null || true)"
+        case "${command_name}" in
+            codex|codex-code-mode|codex-desktop|codex-desktop-linux)
+                return 0
+                ;;
+        esac
+        if [[ "${command_line}" =~ (^|[/[:space:]])codex([[:space:]]|$|-) ]]; then
+            return 0
         fi
-        /usr/bin/sleep 0.1
+
+        while read -r child; do
+            if [[ "${child}" =~ ^[0-9]+$ ]]; then
+                pending+=("${child}")
+            fi
+        done < <(/usr/bin/pgrep -P "${current_pid}" 2>/dev/null || true)
     done
 
-    if [[ ! -s "${audio_file}" ]]; then
-        notify "Codex dictation failed" "No microphone audio was captured."
-        delete_if_present "${window_file}"
+    return 1
+}
+
+focused_codex_window_id() {
+    local window_id window_name window_class window_pid
+
+    window_id="$(/usr/local/bin/xdotool getactivewindow 2>/dev/null || true)"
+    [[ "${window_id}" =~ ^[0-9]+$ ]] || return 1
+
+    window_name="$(/usr/local/bin/xdotool getwindowname "${window_id}" 2>/dev/null || true)"
+    window_class="$(/usr/local/bin/xdotool getwindowclassname "${window_id}" 2>/dev/null || true)"
+    if [[ "${window_name} ${window_class}" =~ [Cc]odex ]]; then
+        printf '%s\n' "${window_id}"
+        return 0
+    fi
+
+    window_pid="$(/usr/local/bin/xdotool getwindowpid "${window_id}" 2>/dev/null || true)"
+    if [[ "${window_pid}" =~ ^[0-9]+$ ]] && process_tree_contains_codex "${window_pid}"; then
+        printf '%s\n' "${window_id}"
+        return 0
+    fi
+
+    return 1
+}
+
+start_recording() {
+    if is_recording; then
+        return 0
+    fi
+
+    # Optimistic UI: Polybar sees the active state before window/model/service
+    # checks and capture IPC, so the indicator changes on the keypress.
+    set_status recording
+
+    local window_id
+    if ! window_id="$(focused_codex_window_id)"; then
+        clear_status
         return 1
     fi
 
-    notify "Codex dictation" "Transcribing locally…"
-
-    local device_args=()
-    if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L 2>/dev/null | /usr/bin/grep -q '^GPU 0:'; then
-        device_args=(-dev 1)
+    if ! check_dependencies || ! ensure_daemon || ! ensure_capture; then
+        clear_status
+        return 1
     fi
 
+    delete_if_present "${audio_file}"
+    delete_if_present "${record_log}"
+    delete_if_present "${transcribe_log}"
+    delete_if_present "${snapshot_file}"
+    delete_if_present "${partial_text_file}"
+    delete_if_present "${final_text_file}"
+
+    printf '%s\n' "${window_id}" >"${window_file}"
+
+    if ! /usr/bin/timeout 10 env \
+        CODEX_DICTATION_CAPTURE_TIMEOUT_MS=10000 \
+        "${node_bin}" "${capture_client}" "${capture_socket}" start \
+        >"${record_log}" 2>&1; then
+        delete_if_present "${window_file}"
+        clear_status
+        return 1
+    fi
+
+    if ! start_live_worker "${window_id}"; then
+        /usr/bin/timeout 10 env \
+            CODEX_DICTATION_CAPTURE_TIMEOUT_MS=10000 \
+            "${node_bin}" "${capture_client}" "${capture_socket}" stop "${audio_file}" \
+            >>"${record_log}" 2>&1 || true
+        delete_if_present "${audio_file}"
+        delete_if_present "${window_file}"
+        clear_status
+        return 1
+    fi
+}
+
+stop_recording() {
     local transcript status text window_id
-    transcript="$({ /usr/bin/timeout 120 "${whisper_bin}" \
-        -m "${model_file}" \
-        -f "${audio_file}" \
-        -l en \
-        --prompt "${vocabulary_prompt}" \
-        -nt \
-        -np \
-        -t 8 \
-        "${device_args[@]}"; } 2>"${transcribe_log}")"
+
+    if ! is_recording; then
+        stop_live_worker
+        clear_status
+        return 0
+    fi
+
+    # Keep the indicator active through capture finalization and transcription.
+    set_status transcribing
+    stop_live_worker
+
+    if ! /usr/bin/timeout 10 env \
+        CODEX_DICTATION_CAPTURE_TIMEOUT_MS=10000 \
+        "${node_bin}" "${capture_client}" "${capture_socket}" stop "${audio_file}" \
+        >"${record_log}" 2>&1; then
+        window_id="$(/usr/bin/head -n 1 "${window_file}" 2>/dev/null || true)"
+        discard_partial_text "${window_id}"
+        delete_if_present "${window_file}"
+        clear_status
+        return 1
+    fi
+
+    if [[ ! -s "${audio_file}" ]]; then
+        window_id="$(/usr/bin/head -n 1 "${window_file}" 2>/dev/null || true)"
+        discard_partial_text "${window_id}"
+        delete_if_present "${window_file}"
+        clear_status
+        return 1
+    fi
+
+    transcript="$({ /usr/bin/timeout 120 env \
+        CODEX_DICTATION_SHERPA_TIMEOUT_MS=120000 \
+        "${node_bin}" "${sherpa_client}" "${daemon_socket}" "${audio_file}"; } 2>"${transcribe_log}")"
     status=$?
 
     delete_if_present "${audio_file}"
 
     if [[ ${status} -ne 0 ]]; then
-        notify "Codex dictation failed" "Local transcription failed; see ${transcribe_log}."
+        window_id="$(/usr/bin/head -n 1 "${window_file}" 2>/dev/null || true)"
+        discard_partial_text "${window_id}"
         delete_if_present "${window_file}"
+        clear_status
         return 1
     fi
 
     text="$(printf '%s' "${transcript}" | /usr/bin/tr '\n' ' ' | /usr/bin/sed -E 's/[[:space:]]+/ /g;s/^ +//;s/ +$//')"
     text="$(printf '%s' "${text}" | /usr/bin/sed -E 's/\b[Cc]ode[[:space:]]+[Xx]\b/Codex/g;s/\b[Cc]odecks\b/Codex/g;s/\b[Cc]odex\b/Codex/g')"
+    window_id="$(/usr/bin/head -n 1 "${window_file}" 2>/dev/null || true)"
     if [[ -z "${text}" || "${text}" =~ ^\[[^]]+\]$ ]]; then
-        notify "Codex dictation" "No speech was detected."
+        discard_partial_text "${window_id}"
         delete_if_present "${window_file}"
+        clear_status
         return 0
     fi
 
-    window_id="$(/usr/bin/head -n 1 "${window_file}" 2>/dev/null || true)"
-    delete_if_present "${window_file}"
-
     if [[ "${CODEX_DICTATION_NO_INSERT:-0}" == "1" ]]; then
         printf '%s\n' "${text}"
-        notify "Codex dictation ready" "Transcription completed (test mode)."
+        discard_partial_text "${window_id}"
+        delete_if_present "${window_file}"
+        clear_status
         return 0
     fi
 
     if [[ -z "${window_id}" ]] || ! /usr/local/bin/xdotool getwindowname "${window_id}" >/dev/null 2>&1; then
-        notify "Codex dictation ready" "The original terminal closed before text could be inserted."
+        discard_partial_text "${window_id}"
+        delete_if_present "${window_file}"
+        clear_status
         return 1
     fi
 
-    if ! /usr/local/bin/xdotool type \
-        --window "${window_id}" \
-        --clearmodifiers \
-        --delay 1 \
-        -- "${text}" 2>>"${transcribe_log}"; then
+    if ! replace_with_final_text "${window_id}" "${text}"; then
         printf '%s\n' 'insertion_status=failed' >>"${transcribe_log}"
-        notify "Codex dictation failed" "The transcription could not be inserted."
+        discard_partial_text "${window_id}"
+        delete_if_present "${window_file}"
+        clear_status
         return 1
     fi
 
     printf '%s\n' 'insertion_status=success' >>"${transcribe_log}"
-    notify "Codex dictation ready" "Transcription inserted locally."
+    delete_if_present "${window_file}"
+    clear_status
 }
 
 exec 9>"${lock_file}"
 if ! /home/linuxbrew/.linuxbrew/bin/flock -n 9; then
-    notify "Codex dictation" "A recording or transcription is already being processed."
     exit 0
 fi
 

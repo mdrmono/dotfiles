@@ -81,10 +81,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Local Whisper dictation: hold Mod+Z to speak, release to insert text.
+# Local Paseo/Sherpa dictation: press Mod+Z to start, press again to insert text.
 # Audio stays on this machine; no API key or network service is used.
-bindsym $mod+z exec --no-startup-id ~/.local/bin/codex-dictation-toggle start
-bindsym --release $mod+z exec --no-startup-id ~/.local/bin/codex-dictation-toggle stop
+bindsym $mod+z exec --no-startup-id ~/.local/bin/codex-dictation-toggle toggle
 
 # For X11
 
