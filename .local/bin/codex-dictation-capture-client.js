@@ -9,9 +9,9 @@ const command = process.argv[3];
 const audioFile = process.argv[4];
 const timeoutMs = Number(process.env.CODEX_DICTATION_CAPTURE_TIMEOUT_MS || 10000);
 
-if (!socketPath || !['start', 'snapshot', 'stop'].includes(command) ||
-    (command !== 'start' && !audioFile)) {
-  console.error('Usage: codex-dictation-capture-client.js SOCKET_PATH start|snapshot|stop [AUDIO_FILE]');
+if (!socketPath || !['start', 'snapshot', 'stop', 'status'].includes(command) ||
+    (['snapshot', 'stop'].includes(command) && !audioFile)) {
+  console.error('Usage: codex-dictation-capture-client.js SOCKET_PATH start|snapshot|stop|status [AUDIO_FILE]');
   process.exit(2);
 }
 
@@ -46,7 +46,11 @@ function connect() {
     try {
       const result = JSON.parse(response);
       if (!result.ok) fail(result.error || 'Dictation capture request failed.');
-      process.exit(0);
+      if (command === 'status') {
+        process.stdout.write(`${String(result.state || '')}\n`, () => process.exit(0));
+      } else {
+        process.exit(0);
+      }
     } catch (error) {
       fail(`Invalid capture service response: ${error.message}`);
     }

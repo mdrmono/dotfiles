@@ -6,6 +6,7 @@ After=basic.target
 Type=simple
 ExecStart=/usr/bin/node %h/.local/bin/codex-dictation-sherpa-daemon.js %t/codex-dictation-%U/sherpa.sock
 Environment=CODEX_DICTATION_SHERPA_IDLE_MS=0
+Environment=CODEX_DICTATION_SHERPA_NATIVE_DIR=%h/.local/share/codex-dictation/sherpa-onnx-linux-x64
 Restart=on-failure
 RestartSec=2
 

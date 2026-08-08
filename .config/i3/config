@@ -83,7 +83,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Local Paseo/Sherpa dictation: press Mod+Z to start, press again to insert text.
 # Audio stays on this machine; no API key or network service is used.
-bindsym $mod+z exec --no-startup-id ~/.local/bin/codex-dictation-toggle toggle
+bindsym --release $mod+z exec --no-startup-id ~/.local/bin/codex-dictation-toggle toggle
 
 # For X11
 

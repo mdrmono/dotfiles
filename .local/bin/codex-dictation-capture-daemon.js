@@ -14,6 +14,12 @@ const bytesPerSample = 2;
 const preRollMs = Number(process.env.CODEX_DICTATION_PRE_ROLL_MS || 500);
 const preRollBytes = Math.max(0, Math.floor(sampleRate * channels * bytesPerSample * preRollMs / 1000));
 
+if (process.argv[2] === 'self-test') {
+  partialSelfTest();
+  process.stdout.write('self-test passed\n');
+  process.exit(0);
+}
+
 if (!socketPath) {
   console.error('Usage: codex-dictation-capture-daemon.js SOCKET_PATH');
   process.exit(2);
@@ -71,17 +77,70 @@ function writeRecording(audioFile, chunks) {
   return pcm.length;
 }
 
+function boundedByteCount(value, fallback) {
+  const count = Number(value);
+  if (!Number.isSafeInteger(count) || count < 0 || count > sampleRate * channels * bytesPerSample * 30) {
+    return fallback;
+  }
+  return count;
+}
+
+function takePartial(activeRecording, minimumBytes, overlapBytes) {
+  if (activeRecording.pendingBytes < minimumBytes) return null;
+  const pending = Buffer.concat(activeRecording.pendingChunks, activeRecording.pendingBytes);
+  const partial = Buffer.concat([activeRecording.partialTail, pending]);
+  activeRecording.partialTail = Buffer.from(
+    partial.subarray(Math.max(0, partial.length - overlapBytes)),
+  );
+  activeRecording.pendingChunks = [];
+  activeRecording.pendingBytes = 0;
+  return partial;
+}
+
+function partialSelfTest() {
+  const activeRecording = {
+    pendingChunks: [Buffer.from('abcd')],
+    pendingBytes: 4,
+    partialTail: Buffer.alloc(0),
+  };
+  const first = takePartial(activeRecording, 4, 2);
+  activeRecording.pendingChunks.push(Buffer.from('efgh'));
+  activeRecording.pendingBytes += 4;
+  const second = takePartial(activeRecording, 4, 2);
+  if (first?.toString() !== 'abcd' || second?.toString() !== 'cdefgh') {
+    throw new Error('Incremental capture chunks are not bounded correctly.');
+  }
+}
+
 function startRecording() {
   if (recording) throw new Error('Dictation is already recording.');
-  recording = { chunks: [Buffer.from(ring)] };
+  const initial = Buffer.from(ring);
+  recording = {
+    chunks: [initial],
+    bytes: initial.length,
+    pendingChunks: [initial],
+    pendingBytes: initial.length,
+    partialTail: Buffer.alloc(0),
+  };
   return { state: 'recording' };
 }
 
 function snapshotRecording(request) {
   if (!recording) throw new Error('Dictation is not recording.');
   const audioFile = resolveAudioFile(request.audioFile);
-  const bytes = writeRecording(audioFile, recording.chunks);
-  return { state: 'recording', bytes };
+  const minimumBytes = boundedByteCount(request.minimumBytes, 1);
+  const overlapBytes = boundedByteCount(request.overlapBytes, 0);
+  const partial = takePartial(recording, minimumBytes, overlapBytes);
+  if (!partial) {
+    return { state: 'recording', bytes: recording.bytes, chunkBytes: 0 };
+  }
+
+  fs.writeFileSync(audioFile, Buffer.concat([wavHeader(partial.length), partial]), { mode: 0o600 });
+  return { state: 'recording', bytes: recording.bytes, chunkBytes: partial.length };
+}
+
+function recordingStatus() {
+  return { state: recording ? 'recording' : 'ready' };
 }
 
 function stopRecording(request) {
@@ -103,8 +162,14 @@ const recorder = spawn('/usr/bin/pw-record', [
 
 recorder.stdout.on('data', (chunk) => {
   const copy = Buffer.from(chunk);
-  if (recording) recording.chunks.push(copy);
-  else ring = appendToRing(ring, copy);
+  if (recording) {
+    recording.chunks.push(copy);
+    recording.bytes += copy.length;
+    recording.pendingChunks.push(copy);
+    recording.pendingBytes += copy.length;
+  } else {
+    ring = appendToRing(ring, copy);
+  }
 });
 
 recorder.on('error', (error) => {
@@ -137,6 +202,7 @@ function handleRequest(request) {
   if (request.command === 'start') return startRecording();
   if (request.command === 'snapshot') return snapshotRecording(request);
   if (request.command === 'stop') return stopRecording(request);
+  if (request.command === 'status') return recordingStatus();
   throw new Error(`Unknown capture command: ${request.command}`);
 }
 

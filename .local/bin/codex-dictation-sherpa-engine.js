@@ -5,7 +5,7 @@ const path = require('node:path');
 
 function createEngine(options = {}) {
   const nativeDir = options.nativeDir || process.env.CODEX_DICTATION_SHERPA_NATIVE_DIR ||
-    '/opt/Paseo/resources/app.asar.unpacked/node_modules/sherpa-onnx-linux-x64';
+    path.join(process.env.HOME || '', '.local/share/codex-dictation/sherpa-onnx-linux-x64');
   const modelDir = options.modelDir || process.env.CODEX_DICTATION_SHERPA_MODEL_DIR ||
     path.join(process.env.HOME || '', '.paseo/models/local-speech/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8');
   const nativeModule = path.join(nativeDir, 'index.js');

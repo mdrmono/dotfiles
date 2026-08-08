@@ -18,7 +18,7 @@ capture_daemon="${CODEX_DICTATION_CAPTURE_DAEMON:-${HOME}/.local/bin/codex-dicta
 capture_client="${CODEX_DICTATION_CAPTURE_CLIENT:-${HOME}/.local/bin/codex-dictation-capture-client.js}"
 live_worker="${CODEX_DICTATION_LIVE_WORKER:-${HOME}/.local/bin/codex-dictation-live.js}"
 sherpa_model_dir="${CODEX_DICTATION_SHERPA_MODEL_DIR:-${HOME}/.paseo/models/local-speech/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8}"
-sherpa_native_dir="${CODEX_DICTATION_SHERPA_NATIVE_DIR:-/opt/Paseo/resources/app.asar.unpacked/node_modules/sherpa-onnx-linux-x64}"
+sherpa_native_dir="${CODEX_DICTATION_SHERPA_NATIVE_DIR:-${HOME}/.local/share/codex-dictation/sherpa-onnx-linux-x64}"
 node_bin="${CODEX_DICTATION_NODE:-/usr/bin/node}"
 daemon_unit="codex-dictation-sherpa.service"
 daemon_socket="${state_dir}/sherpa.sock"
@@ -57,6 +57,7 @@ check_dependencies() {
     if [[ ! -x "${node_bin}" || ! -r "${sherpa_node}" || ! -r "${sherpa_daemon}" || \
         ! -r "${sherpa_client}" || \
         ! -r "${capture_daemon}" || ! -r "${capture_client}" || ! -r "${live_worker}" || \
+        ! -x /usr/bin/xclip || \
         ! -r "${sherpa_native_dir}/sherpa-onnx.node" || \
         ! -r "${sherpa_model_dir}/encoder.int8.onnx" || \
         ! -r "${sherpa_model_dir}/decoder.int8.onnx" || \
@@ -140,7 +141,6 @@ start_live_worker() {
         --collect \
         --unit="${live_unit}" \
         --property=Type=exec \
-        --property=RuntimeMaxSec=5min \
         env \
         CODEX_DICTATION_LIVE_INTERVAL_MS="${CODEX_DICTATION_LIVE_INTERVAL_MS:-1000}" \
         "${node_bin}" "${live_worker}" watch \
@@ -293,7 +293,7 @@ stop_recording() {
     fi
 
     # Keep the indicator active through capture finalization and transcription.
-    set_status transcribing
+    set_status "transcribing $$"
     stop_live_worker
 
     if ! /usr/bin/timeout 10 env \
