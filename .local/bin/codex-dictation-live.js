@@ -130,12 +130,10 @@ function seedPrimarySelection(value) {
   return result.status === 0;
 }
 
-function eraseOwnedText(windowId, expected) {
+function selectOwnedText(windowId, expected) {
   if (!expected) return true;
   if (dryRun) {
-    if (process.env.CODEX_DICTATION_LIVE_OWNERSHIP === 'unowned') return false;
-    sendRepeatedKey(windowId, 'BackSpace', 1);
-    return true;
+    return process.env.CODEX_DICTATION_LIVE_OWNERSHIP !== 'unowned';
   }
   if (!windowIsFocused(windowId)) return false;
 
@@ -145,39 +143,51 @@ function eraseOwnedText(windowId, expected) {
 
   sendRepeatedKey(windowId, 'shift+Left', count);
   const selected = readPrimarySelection();
-  if (selected === expected) {
-    sendRepeatedKey(windowId, 'BackSpace', 1);
-    return true;
-  }
+  if (selected === expected) return true;
   if (selected === nonce || selected === null) sendRepeatedKey(windowId, 'Right', count);
   else sendRepeatedKey(windowId, 'Right', 1);
   return false;
 }
 
+function latchUnowned(stateFile) {
+  writeText(`${stateFile}.unowned`, 'unowned');
+}
+
 function updateComposer(windowId, stateFile, nextText, requireFocus) {
+  if (readText(`${stateFile}.unowned`) === 'unowned') return 'unowned';
+
   const previous = readText(stateFile);
   if (previous === nextText) return 'unchanged';
-  if (!windowExists(windowId) || (requireFocus && !windowIsFocused(windowId))) return 'unavailable';
+  if (!windowExists(windowId)) return 'unavailable';
+  if (!previous && requireFocus && !windowIsFocused(windowId)) return 'unavailable';
 
   const update = planUpdate(previous, nextText);
-  if (update.erase > 0) {
-    if (!eraseOwnedText(windowId, previous)) return 'unowned';
-    writeText(stateFile, '');
-    if (nextText) {
+  if (previous && !selectOwnedText(windowId, previous)) {
+    latchUnowned(stateFile);
+    return 'unowned';
+  }
+
+  try {
+    if (update.erase > 0) {
+      sendRepeatedKey(windowId, 'BackSpace', 1);
+      writeText(stateFile, '');
+      if (nextText) {
+        runXdotool([
+          'type', '--window', String(windowId), '--clearmodifiers', '--delay', '1', '--', nextText,
+        ]);
+      }
+    } else if (update.append) {
+      if (previous) sendRepeatedKey(windowId, 'Right', 1);
       runXdotool([
-        'type', '--window', String(windowId), '--clearmodifiers', '--delay', '1', '--', nextText,
+        'type', '--window', String(windowId), '--clearmodifiers', '--delay', '1', '--', update.append,
       ]);
     }
     writeText(stateFile, nextText);
     return 'updated';
+  } catch (error) {
+    latchUnowned(stateFile);
+    throw error;
   }
-  if (update.append) {
-    runXdotool([
-      'type', '--window', String(windowId), '--clearmodifiers', '--delay', '1', '--', update.append,
-    ]);
-  }
-  writeText(stateFile, nextText);
-  return 'updated';
 }
 
 function requestJson(socketPath, request, timeoutMs) {
@@ -249,7 +259,7 @@ async function watch(args) {
         const segment = normalizeTranscript(result.text);
         if (segment && !/^\[[^\]]+\]$/.test(segment)) {
           transcript = mergeTranscripts(transcript, segment);
-          updateComposer(windowId, stateFile, transcript, true);
+          if (updateComposer(windowId, stateFile, transcript, true) === 'unowned') return;
         }
         snapshotReady = false;
       }
@@ -272,11 +282,7 @@ function replace(args) {
   const nextText = normalizeTranscript(readText(nextFile));
   const result = updateComposer(windowId, stateFile, nextText, false);
   if (result === 'unavailable') throw new Error('The original Codex window is unavailable.');
-  if (result === 'unowned' && nextText) {
-    runXdotool([
-      'type', '--window', String(windowId), '--clearmodifiers', '--delay', '1', '--', ` ${nextText}`,
-    ]);
-  }
+  if (result === 'unowned') process.exitCode = 3;
 }
 
 function selfTest() {

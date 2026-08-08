@@ -30,6 +30,7 @@ status_file="${state_dir}/status"
 live_unit="codex-dictation-partial.service"
 snapshot_file="${state_dir}/partial.wav"
 partial_text_file="${state_dir}/partial-transcript"
+partial_ownership_file="${partial_text_file}.unowned"
 final_text_file="${state_dir}/final-transcript"
 
 mkdir -p "${state_dir}"
@@ -162,6 +163,7 @@ discard_partial_text() {
     fi
     delete_if_present "${snapshot_file}"
     delete_if_present "${partial_text_file}"
+    delete_if_present "${partial_ownership_file}"
     delete_if_present "${final_text_file}"
 }
 
@@ -176,6 +178,7 @@ replace_with_final_text() {
     fi
     delete_if_present "${snapshot_file}"
     delete_if_present "${partial_text_file}"
+    delete_if_present "${partial_ownership_file}"
     delete_if_present "${final_text_file}"
     return 0
 }
@@ -258,6 +261,7 @@ start_recording() {
     delete_if_present "${transcribe_log}"
     delete_if_present "${snapshot_file}"
     delete_if_present "${partial_text_file}"
+    delete_if_present "${partial_ownership_file}"
     delete_if_present "${final_text_file}"
 
     printf '%s\n' "${window_id}" >"${window_file}"
