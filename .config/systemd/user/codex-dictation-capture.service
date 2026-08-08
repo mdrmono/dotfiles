@@ -1,0 +1,13 @@
+[Unit]
+Description=In-memory pre-roll capture for Codex dictation
+After=basic.target pipewire.service pipewire-pulse.service wireplumber.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node %h/.local/bin/codex-dictation-capture-daemon.js %t/codex-dictation-%U/capture.sock
+Environment=CODEX_DICTATION_PRE_ROLL_MS=500
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
