@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OpenWhispr
+Exec=/home/manuelin/dotfiles/scripts/util/openwhispr_launch.sh %U
+Terminal=false
+Type=Application
+Icon=open-whispr
+StartupWMClass=OpenWhispr
+Comment=A desktop dictation application using local Whisper transcription
+MimeType=x-scheme-handler/openwhispr;
+Categories=Utility;
