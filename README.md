@@ -46,6 +46,19 @@ stow -R .     # Refresh symlinks
 stow --adopt . # Adopt existing files into repo
 ```
 
+## OpenWhispr
+
+OpenWhispr starts through XDG autostart and is also available from the
+application launcher. Both entries use the CUDA-aware launch wrapper. The
+microphone module on the main Polybar launches the same wrapper when clicked;
+its icon is gray while OpenWhispr is stopped, teal while idle, and red only
+while OpenWhispr is recording.
+
+The active host profile uses Whisper Base with CUDA. OpenWhispr application and
+runtime state under `~/.config/open-whispr`—including databases, recordings,
+models, sessions, and credentials—remains machine-local and is intentionally
+not tracked here.
+
 ## Notes
 
 - Copy `.env.example` to `.env` and configure as needed

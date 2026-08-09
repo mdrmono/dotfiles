@@ -36,9 +36,9 @@ emit_status() {
         return
     fi
 
-    # OpenWhispr opens its PipeWire source-output only while it is actively
-    # recording. Match the packaged binary or application name so another app
-    # using the microphone cannot turn this indicator red.
+    # OpenWhispr exposes a PulseAudio-compatible source-output through PipeWire
+    # only while it is recording. Match the packaged binary or application name
+    # so another app using the microphone cannot turn this indicator red.
     if /home/linuxbrew/.linuxbrew/bin/pactl list source-outputs 2>/dev/null |
         /usr/bin/awk '
             BEGIN { RS = "Source Output #" }
@@ -48,8 +48,7 @@ emit_status() {
                 found = 1
             }
             END { exit found ? 0 : 1 }
-        '
-    then
+        '; then
         printf '%%{F%s}%s%%{F-}\n' "${active_color}" "${active_icon}"
     else
         printf '%%{F%s}%s%%{F-}\n' "${idle_color}" "${idle_icon}"
@@ -86,6 +85,9 @@ publish_pulse_events() {
         exec {subscription_input_fd}>&- 2>/dev/null || true
         subscription_ready=false
 
+        # The subscription has no ready marker. A short-lived pactl client
+        # generates an event that confirms this subscriber is receiving data;
+        # only then is it safe to resynchronize after the startup window.
         for ((attempt = 0; attempt < 20; attempt++)); do
             /usr/bin/timeout 0.2 \
                 /home/linuxbrew/.linuxbrew/bin/pactl info >/dev/null 2>&1 || true
