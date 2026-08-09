@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=OpenWhispr
+Comment=Start OpenWhispr for local dictation
+Exec=/home/manuelin/dotfiles/scripts/util/openwhispr_launch.sh
+Icon=open-whispr
+Terminal=false
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
