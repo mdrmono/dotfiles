@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
+# With no arguments, configure every connected monitor. Use --single only as a
+# temporary override; the next i3 reload returns to the default dual layout.
+SINGLE_OUTPUT=""
+if [ "${1:-}" = "--single" ]; then
+  if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 --single OUTPUT" >&2
+    exit 2
+  fi
+  SINGLE_OUTPUT="$2"
+elif [ "${1:-}" = "--dual" ]; then
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 --dual" >&2
+    exit 2
+  fi
+elif [ "$#" -gt 0 ]; then
+  echo "Usage: $0 [--single OUTPUT | --dual]" >&2
+  exit 2
+fi
+
 # Turn off all disconnected monitors first
 DISCONNECTED=($(xrandr --query | grep " disconnected" | cut -d" " -f1))
 for MON in "${DISCONNECTED[@]}"; do
@@ -83,6 +102,66 @@ get_highest_mode() {
     '
 }
 
+escape_i3_string() {
+  local value=$1
+  value=${value//\\/\\\\}
+  value=${value//\"/\\\"}
+  printf '%s' "$value"
+}
+
+move_workspaces_to_output() {
+  local target=$1
+  local focused_workspace workspace escaped_workspace
+  local -a workspaces
+
+  if ! command -v i3-msg >/dev/null || ! command -v jq >/dev/null; then
+    echo "Warning: i3-msg and jq are required to consolidate workspaces"
+    return 0
+  fi
+
+  focused_workspace=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused).name' | head -n 1)
+  mapfile -t workspaces < <(i3-msg -t get_workspaces | jq -r '.[].name')
+
+  for workspace in "${workspaces[@]}"; do
+    escaped_workspace=$(escape_i3_string "$workspace")
+    i3-msg -q "workspace --no-auto-back-and-forth \"$escaped_workspace\"; move workspace to output \"$target\""
+  done
+
+  if [ -n "$focused_workspace" ]; then
+    escaped_workspace=$(escape_i3_string "$focused_workspace")
+    i3-msg -q "workspace --no-auto-back-and-forth \"$escaped_workspace\""
+  fi
+}
+
+setup_single_monitor() {
+  local target=$1
+  local mode_rate mon
+  local -a xrandr_args
+
+  if [[ ! " ${MONITORS[*]} " =~ " $target " ]]; then
+    echo "Error: Monitor $target is not connected" >&2
+    exit 1
+  fi
+
+  mode_rate=$(get_highest_mode "$target")
+  if [ -z "$mode_rate" ]; then
+    echo "Error: Could not determine best mode for $target" >&2
+    exit 1
+  fi
+
+  set -- $mode_rate
+  echo "Setting $target as the only active monitor at $1 and ${2}Hz"
+  xrandr_args=(--output "$target" --primary --mode "$1" --rate "$2" --pos 0x0)
+  for mon in "${MONITORS[@]}"; do
+    if [ "$mon" != "$target" ]; then
+      xrandr_args+=(--output "$mon" --off)
+    fi
+  done
+
+  xrandr "${xrandr_args[@]}"
+  move_workspaces_to_output "$target"
+}
+
 # Debug function to show what modes are found
 debug_modes() {
   local MON=$1
@@ -102,21 +181,12 @@ fi
 
 echo "Detected monitors: ${MONITORS[*]}"
 
-if [ ${#MONITORS[@]} -eq 1 ]; then
+if [ -n "$SINGLE_OUTPUT" ]; then
+  setup_single_monitor "$SINGLE_OUTPUT"
+
+elif [ ${#MONITORS[@]} -eq 1 ]; then
   echo "Setting up single monitor: ${MONITORS[0]}"
-
-  # Debug output
-  # debug_modes "${MONITORS[0]}"
-
-  mode_rate=$(get_highest_mode "${MONITORS[0]}")
-  if [ -z "$mode_rate" ]; then
-    echo "Error: Could not determine best mode for ${MONITORS[0]}"
-    exit 1
-  fi
-
-  set -- $mode_rate
-  echo "Setting ${MONITORS[0]} to mode $1 at ${2}Hz"
-  xrandr --output "${MONITORS[0]}" --mode "$1" --rate "$2"
+  setup_single_monitor "${MONITORS[0]}"
 
 elif [ ${#MONITORS[@]} -eq 2 ]; then
   echo "Setting up dual monitors"
