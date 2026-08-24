@@ -4,6 +4,7 @@ set -euo pipefail
 
 cuda_lib_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/openwhispr/cuda-12-runtime/usr/lib/x86_64-linux-gnu"
 event_fifo="${XDG_RUNTIME_DIR:-/tmp}/openwhispr-status-${UID}.fifo"
+hide_floating_preload="${HOME}/dotfiles/scripts/util/openwhispr_hide_floating.cjs"
 
 notify_status() {
     if [[ -p "${event_fifo}" ]]; then
@@ -21,6 +22,17 @@ if [[ -d "${cuda_lib_dir}" ]]; then
         export LD_LIBRARY_PATH="${cuda_lib_dir}:${LD_LIBRARY_PATH}"
     else
         export LD_LIBRARY_PATH="${cuda_lib_dir}"
+    fi
+fi
+
+# Keep OpenWhispr's dictation renderer alive, but never map its floating
+# "Voice Recorder" window. The control panel and background dictation remain
+# available normally.
+if [[ -f "${hide_floating_preload}" ]]; then
+    if [[ -n "${NODE_OPTIONS:-}" ]]; then
+        export NODE_OPTIONS="--require=${hide_floating_preload} ${NODE_OPTIONS}"
+    else
+        export NODE_OPTIONS="--require=${hide_floating_preload}"
     fi
 fi
 

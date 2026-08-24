@@ -111,28 +111,28 @@
   },
   "geometry-of-import-foreign-geometry": {
     "frame_geometry": {
-      "height": 208,
+      "height": 194,
       "width": 537,
-      "x": 2612,
-      "y": 469
+      "x": 2616,
+      "y": 487
     },
     "full_screened": false,
     "geometry": {
       "height": 190,
       "width": 533,
-      "x": 2614,
-      "y": 485
+      "x": 2618,
+      "y": 489
     },
     "maximized": false,
     "normal_geometry": {
       "height": 190,
       "width": 533,
-      "x": 2614,
-      "y": 485
+      "x": 2618,
+      "y": 489
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAo0AAAB1QAADEwAAAKkAAAKNgAAAeUAAAxKAAACogAAAAAAAAAAB4AAAAo2AAAB5QAADEoAAAKi"
+      "__value__": "AdnQywADAAAAAAo4AAAB5wAADFAAAAKoAAAKOgAAAekAAAxOAAACpgAAAAAAAAAAB4AAAAo6AAAB6QAADE4AAAKm"
     },
     "screen": {
       "depth": 24,
@@ -162,28 +162,28 @@
   },
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 1032,
-      "width": 1920,
-      "x": 1920,
-      "y": 48
+      "height": 1012,
+      "width": 1900,
+      "x": 1930,
+      "y": 58
     },
     "full_screened": false,
     "geometry": {
-      "height": 1032,
-      "width": 1920,
-      "x": 1920,
-      "y": 48
+      "height": 1010,
+      "width": 1896,
+      "x": 1932,
+      "y": 58
     },
     "maximized": false,
     "normal_geometry": {
-      "height": 1032,
-      "width": 1920,
-      "x": 1920,
-      "y": 48
+      "height": 1010,
+      "width": 1896,
+      "x": 1932,
+      "y": 58
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAeAAAAAMAAADv8AAAQ3AAAHgAAAADAAAA7/AAAENwAAAAAAAAAAB4AAAAeAAAAAMAAADv8AAAQ3"
+      "__value__": "AdnQywADAAAAAAeKAAAAOgAADvUAAAQtAAAHjAAAADoAAA7zAAAEKwAAAAAAAAAAB4AAAAeMAAAAOgAADvMAAAQr"
     },
     "screen": {
       "depth": 24,
@@ -217,7 +217,7 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAD9AAAABAAAAAAAAAEAAAADs/wCAAAABfsAAAAkAGYAaQBsAGUAcwAtAGIAcgBvAHcAcwBlAHIALQBkAG8AYwBrAQAAAD4AAAOzAAAAWgD////7AAAAHgB0AG8AYwAtAHYAaQBlAHcAZQByAC0AZABvAGMAawAAAAAA/////wAAAFoA////+wAAACAAdABlAHgAdAAtAHMAZQBhAHIAYwBoAC0AZABvAGMAawAAAAAA/////wAAAIAA////+wAAACAAYwBoAGUAYwBrAHAAbwBpAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAIwA////+wAAACYAcwBhAHYAZQBkAC0AcwBlAGEAcgBjAGgAZQBzAC0AZABvAGMAawAAAAAA/////wAAAhUA////AAAAAQAAAoAAAAOz/AIAAAAC+wAAABgAcAByAGUAdgBpAGUAdwAtAGQAbwBjAGsBAAAAPgAAA7MAAABTAP////sAAAAaAGwAaQB2AGUALQBjAHMAcwAtAGQAbwBjAGsAAAAAAP////8AAABaAP///wAAAAIAAAAAAAAAAPwBAAAAAfsAAAAeAGMAaABlAGMAawAtAGIAbwBvAGsALQBkAG8AYwBrAAAAAAD/////AAAAkAD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABpAG4AcwBwAGUAYwB0AG8AcgAtAGQAbwBjAGsAAAAAAP////8AAAA7AP///wAAA/QAAAOzAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAUAGcAbABvAGIAYQBsAC0AYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABIAdABvAG8AbABzAC0AYgBhAHIBAAABJv////8AAAAAAAAAAAAAABYAcABsAHUAZwBpAG4AcwAtAGIAYQByAAAAAAD/////AAAAAAAAAAA="
+    "__value__": "AAAA/wAAAAD9AAAABAAAAAAAAAEAAAADnfwCAAAABfsAAAAkAGYAaQBsAGUAcwAtAGIAcgBvAHcAcwBlAHIALQBkAG8AYwBrAQAAAD4AAAOdAAAAWgD////7AAAAHgB0AG8AYwAtAHYAaQBlAHcAZQByAC0AZABvAGMAawAAAAAA/////wAAAFoA////+wAAACAAdABlAHgAdAAtAHMAZQBhAHIAYwBoAC0AZABvAGMAawAAAAAA/////wAAAIAA////+wAAACAAYwBoAGUAYwBrAHAAbwBpAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAIwA////+wAAACYAcwBhAHYAZQBkAC0AcwBlAGEAcgBjAGgAZQBzAC0AZABvAGMAawAAAAAA/////wAAAhUA////AAAAAQAAAoAAAAOd/AIAAAAC+wAAABgAcAByAGUAdgBpAGUAdwAtAGQAbwBjAGsBAAAAPgAAA50AAABTAP////sAAAAaAGwAaQB2AGUALQBjAHMAcwAtAGQAbwBjAGsAAAAAAP////8AAABaAP///wAAAAIAAAAAAAAAAPwBAAAAAfsAAAAeAGMAaABlAGMAawAtAGIAbwBvAGsALQBkAG8AYwBrAAAAAAD/////AAAAkAD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABpAG4AcwBwAGUAYwB0AG8AcgAtAGQAbwBjAGsAAAAAAP////8AAAA7AP///wAAA9wAAAOdAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAUAGcAbABvAGIAYQBsAC0AYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABIAdABvAG8AbABzAC0AYgBhAHIBAAABJv////8AAAAAAAAAAAAAABYAcABsAHUAZwBpAG4AcwAtAGIAYQByAAAAAAD/////AAAAAAAAAAA="
   },
   "recent-books": [
     "/home/manuelin/Desktop/cursos/SFU/ARCH301/01. Module 1, Week 1 May 11-15, What is Archaeology/1.1 Module 1 Overview.epub",
