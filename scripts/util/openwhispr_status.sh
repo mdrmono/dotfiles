@@ -4,9 +4,9 @@ set -u
 
 active_icon=''
 idle_icon=''
-active_color='#B04027'
-idle_color='#3C7B82'
-disabled_color='#6E6863'
+active_color='#E07A5F'
+idle_color='#78AEB4'
+disabled_color='#A69F97'
 event_fifo="${XDG_RUNTIME_DIR:-/tmp}/openwhispr-status-${UID}.fifo"
 lock_file="${event_fifo}.lock"
 
@@ -32,7 +32,7 @@ trap cleanup EXIT INT TERM
 
 emit_status() {
     if ! /usr/bin/pgrep -x open-whispr-app >/dev/null 2>&1; then
-        printf '%%{F%s}%s%%{F-}\n' "${disabled_color}" "${idle_icon}"
+        printf '%%{F%s}%%{T2}%s%%{T-}%%{F-}\n' "${disabled_color}" "${idle_icon}"
         return
     fi
 
@@ -49,9 +49,9 @@ emit_status() {
             }
             END { exit found ? 0 : 1 }
         '; then
-        printf '%%{F%s}%s%%{F-}\n' "${active_color}" "${active_icon}"
+        printf '%%{F%s}%%{T2}%s%%{T-}%%{F-}\n' "${active_color}" "${active_icon}"
     else
-        printf '%%{F%s}%s%%{F-}\n' "${idle_color}" "${idle_icon}"
+        printf '%%{F%s}%%{T2}%s%%{T-}%%{F-}\n' "${idle_color}" "${idle_icon}"
     fi
 }
 

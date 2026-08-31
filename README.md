@@ -18,6 +18,7 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 ├── .env.example        # Environment variables template
 ├── .gitignore
 ├── .p10k.zsh           # Powerlevel10k Zsh theme
+├── .xprofile           # Fcitx environment for graphical sessions
 ├── README.md
 └── scripts/            # Utility scripts
 ```

@@ -4,7 +4,7 @@ Name=Default
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-es
+DefaultIM=keyboard-latam
 
 [Groups/0/Items/0]
 # Name
@@ -20,7 +20,7 @@ Layout=
 
 [Groups/0/Items/2]
 # Name
-Name=keyboard-es
+Name=keyboard-latam
 # Layout
 Layout=
 

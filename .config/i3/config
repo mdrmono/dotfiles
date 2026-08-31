@@ -49,6 +49,10 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec_always --no-startup-id fcitx5 -d
 exec_always --no-startup-id setxkbmap -option caps:escape
 
+# Cycle US, Pinyin, and Latin American input methods globally.
+bindsym --release $mod+space exec --no-startup-id ~/dotfiles/scripts/util/cycle_input_method.sh
+bindsym --release $mod+Shift+space exec --no-startup-id ~/dotfiles/scripts/util/cycle_input_method.sh --backward
+
 # ==============================
 # Mouse/Touchpad settings
 # ==============================
@@ -148,8 +152,6 @@ bindsym $mod+e layout toggle split
 # bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
 

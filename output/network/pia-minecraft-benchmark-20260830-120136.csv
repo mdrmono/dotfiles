@@ -1,0 +1,9 @@
+rank,region,vpn_ip,resolved_ip,gateway_average_ms,gateway_loss_percent,edge_average_ms,edge_jitter_ms,edge_loss_percent,successful_samples,attempted_samples,tcp_median_ms,status_median_ms,pong_median_ms,pong_p95_ms,score,errors
+1,us-atlanta,72.9.243.3,172.65.197.160,107.119,0.000,97.906,1.601,0.000,5,5,97.424,237.094,117.965,131.578,117.965,
+2,colombia,154.47.16.194,172.65.197.160,69.273,0.000,70.501,5.639,0.000,5,5,69.683,738.074,164.689,204.304,164.689,
+3,us-chicago,193.56.117.91,172.65.197.160,115.813,0.000,117.369,0.947,0.000,4,5,117.262,251.533,121.476,123.954,321.476,TimeoutError: timed out
+4,us-houston,104.234.208.101,172.65.197.160,99.728,0.000,105.913,1.234,0.000,4,5,106.075,266.312,130.392,132.389,330.392,TimeoutError: timed out
+5,chile,50.118.223.43,172.65.197.160,39.830,0.000,40.040,2.041,0.000,4,5,40.178,447.248,174.863,175.669,374.863,TimeoutError: timed out
+6,panama,135.136.72.99,172.65.197.160,67.199,0.000,68.242,0.816,0.000,3,5,69.827,204.863,101.402,102.979,501.402,TimeoutError: timed out | TimeoutError: timed out
+7,peru,147.90.178.79,172.65.197.160,116.801,0.000,127.127,3.786,0.000,3,5,140.609,384.623,190.003,193.276,590.003,TimeoutError: timed out | TimeoutError: timed out
+8,us-florida,102.129.152.22,172.65.197.160,69.462,0.000,72.694,6.835,0.000,2,5,95.135,215.402,103.172,103.781,703.172,TimeoutError: timed out | TimeoutError: timed out | TimeoutError: timed out
