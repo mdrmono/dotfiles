@@ -1,28 +1,28 @@
 {
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 1032,
-      "width": 1920,
-      "x": 1920,
-      "y": 48
+      "height": 1008,
+      "width": 1900,
+      "x": 1930,
+      "y": 62
     },
     "full_screened": false,
     "geometry": {
-      "height": 1032,
-      "width": 1920,
-      "x": 1920,
-      "y": 48
+      "height": 1006,
+      "width": 1896,
+      "x": 1932,
+      "y": 62
     },
     "maximized": false,
     "normal_geometry": {
-      "height": 1032,
-      "width": 1920,
-      "x": 1920,
-      "y": 48
+      "height": 1006,
+      "width": 1896,
+      "x": 1932,
+      "y": 62
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAeAAAAAMAAADv8AAAQ3AAAHgAAAADAAAA7/AAAENwAAAAEAAAAAB4AAAAeAAAAAMAAADv8AAAQ3"
+      "__value__": "AdnQywADAAAAAAeKAAAAPgAADvUAAAQtAAAHjAAAAD4AAA7zAAAEKwAAAAAAAAAAB4AAAAeMAAAAPgAADvMAAAQr"
     },
     "screen": {
       "depth": 24,
@@ -33,7 +33,7 @@
         "x": 1920,
         "y": 0
       },
-      "index_in_screens_list": 1,
+      "index_in_screens_list": 0,
       "manufacturer": "HGC",
       "model": "CR270QA",
       "name": "DP-0",
@@ -52,7 +52,7 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEEAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAAHgAAABAgAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEEAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAAHaAAAA+4AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "saved-search-settings": {
@@ -71,6 +71,18 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "key": "/home/manuelin/.cache/.fr-UHZSW3/facturas_2026-10-05/indice_ruc.txt",
+        "pathtoebook": "/home/manuelin/.cache/.fr-UHZSW3/facturas_2026-10-05/indice_ruc.txt",
+        "timestamp": "2026-10-05T21:13:11.663Z",
+        "title": "indice_ruc"
+      },
+      {
+        "key": "/home/manuelin/Desktop/work/2026/sep/paucar/output/imagenes_clasificadas_doris/00_doris_personal_directa/LEEME.txt",
+        "pathtoebook": "/home/manuelin/Desktop/work/2026/sep/paucar/output/imagenes_clasificadas_doris/00_doris_personal_directa/LEEME.txt",
+        "timestamp": "2026-09-25T15:03:55.369Z",
+        "title": "LEEME"
+      },
       {
         "key": "/home/manuelin/Downloads/CV_Arturo_Darko_Professional.pdf",
         "pathtoebook": "/home/manuelin/Downloads/CV_Arturo_Darko_Professional.pdf",
@@ -229,18 +241,6 @@
         "pathtoebook": "/home/manuelin/Downloads/G18_contract_250527_000342 (1).pdf",
         "timestamp": "2025-05-27T07:05:09.365Z",
         "title": "G18 contract 250527 000342 (1)"
-      },
-      {
-        "key": "/home/manuelin/SFU Courses/vpn.txt",
-        "pathtoebook": "/home/manuelin/SFU Courses/vpn.txt",
-        "timestamp": "2025-05-25T19:04:11.008Z",
-        "title": "vpn"
-      },
-      {
-        "key": "/home/manuelin/Desktop/Cursos/SFU/Cursos/archivo/CMPT 353/vpn.txt",
-        "pathtoebook": "/home/manuelin/Desktop/Cursos/SFU/Cursos/archivo/CMPT 353/vpn.txt",
-        "timestamp": "2025-05-23T16:36:20.983Z",
-        "title": "vpn"
       }
     ]
   },

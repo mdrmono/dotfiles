@@ -113,26 +113,26 @@
     "frame_geometry": {
       "height": 194,
       "width": 537,
-      "x": 2616,
-      "y": 487
+      "x": 2620,
+      "y": 491
     },
     "full_screened": false,
     "geometry": {
       "height": 190,
       "width": 533,
-      "x": 2618,
-      "y": 489
+      "x": 2622,
+      "y": 493
     },
     "maximized": false,
     "normal_geometry": {
       "height": 190,
       "width": 533,
-      "x": 2618,
-      "y": 489
+      "x": 2622,
+      "y": 493
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAo4AAAB5wAADFAAAAKoAAAKOgAAAekAAAxOAAACpgAAAAAAAAAAB4AAAAo6AAAB6QAADE4AAAKm"
+      "__value__": "AdnQywADAAAAAAo8AAAB6wAADFQAAAKsAAAKPgAAAe0AAAxSAAACqgAAAAAAAAAAB4AAAAo+AAAB7QAADFIAAAKq"
     },
     "screen": {
       "depth": 24,
@@ -162,28 +162,28 @@
   },
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 1012,
+      "height": 1008,
       "width": 1900,
       "x": 1930,
-      "y": 58
+      "y": 62
     },
     "full_screened": false,
     "geometry": {
-      "height": 1010,
+      "height": 1006,
       "width": 1896,
       "x": 1932,
-      "y": 58
+      "y": 62
     },
     "maximized": false,
     "normal_geometry": {
-      "height": 1010,
+      "height": 1006,
       "width": 1896,
       "x": 1932,
-      "y": 58
+      "y": 62
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAeKAAAAOgAADvUAAAQtAAAHjAAAADoAAA7zAAAEKwAAAAAAAAAAB4AAAAeMAAAAOgAADvMAAAQr"
+      "__value__": "AdnQywADAAAAAAeKAAAAPgAADvUAAAQtAAAHjAAAAD4AAA7zAAAEKwAAAAAAAAAAB4AAAAeMAAAAPgAADvMAAAQr"
     },
     "screen": {
       "depth": 24,
@@ -217,9 +217,11 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAD9AAAABAAAAAAAAAEAAAADnfwCAAAABfsAAAAkAGYAaQBsAGUAcwAtAGIAcgBvAHcAcwBlAHIALQBkAG8AYwBrAQAAAD4AAAOdAAAAWgD////7AAAAHgB0AG8AYwAtAHYAaQBlAHcAZQByAC0AZABvAGMAawAAAAAA/////wAAAFoA////+wAAACAAdABlAHgAdAAtAHMAZQBhAHIAYwBoAC0AZABvAGMAawAAAAAA/////wAAAIAA////+wAAACAAYwBoAGUAYwBrAHAAbwBpAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAIwA////+wAAACYAcwBhAHYAZQBkAC0AcwBlAGEAcgBjAGgAZQBzAC0AZABvAGMAawAAAAAA/////wAAAhUA////AAAAAQAAAoAAAAOd/AIAAAAC+wAAABgAcAByAGUAdgBpAGUAdwAtAGQAbwBjAGsBAAAAPgAAA50AAABTAP////sAAAAaAGwAaQB2AGUALQBjAHMAcwAtAGQAbwBjAGsAAAAAAP////8AAABaAP///wAAAAIAAAAAAAAAAPwBAAAAAfsAAAAeAGMAaABlAGMAawAtAGIAbwBvAGsALQBkAG8AYwBrAAAAAAD/////AAAAkAD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABpAG4AcwBwAGUAYwB0AG8AcgAtAGQAbwBjAGsAAAAAAP////8AAAA7AP///wAAA9wAAAOdAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAUAGcAbABvAGIAYQBsAC0AYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABIAdABvAG8AbABzAC0AYgBhAHIBAAABJv////8AAAAAAAAAAAAAABYAcABsAHUAZwBpAG4AcwAtAGIAYQByAAAAAAD/////AAAAAAAAAAA="
+    "__value__": "AAAA/wAAAAD9AAAABAAAAAAAAAEAAAADmfwCAAAABfsAAAAkAGYAaQBsAGUAcwAtAGIAcgBvAHcAcwBlAHIALQBkAG8AYwBrAQAAAD4AAAOZAAAAWgD////7AAAAHgB0AG8AYwAtAHYAaQBlAHcAZQByAC0AZABvAGMAawAAAAAA/////wAAAFoA////+wAAACAAdABlAHgAdAAtAHMAZQBhAHIAYwBoAC0AZABvAGMAawAAAAAA/////wAAAIAA////+wAAACAAYwBoAGUAYwBrAHAAbwBpAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAIwA////+wAAACYAcwBhAHYAZQBkAC0AcwBlAGEAcgBjAGgAZQBzAC0AZABvAGMAawAAAAAA/////wAAAhUA////AAAAAQAAAoAAAAOZ/AIAAAAC+wAAABgAcAByAGUAdgBpAGUAdwAtAGQAbwBjAGsBAAAAPgAAA5kAAABTAP////sAAAAaAGwAaQB2AGUALQBjAHMAcwAtAGQAbwBjAGsAAAAAAP////8AAABaAP///wAAAAIAAAAAAAAAAPwBAAAAAfsAAAAeAGMAaABlAGMAawAtAGIAbwBvAGsALQBkAG8AYwBrAAAAAAD/////AAAAkAD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABpAG4AcwBwAGUAYwB0AG8AcgAtAGQAbwBjAGsAAAAAAP////8AAAA7AP///wAAA9wAAAOZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAUAGcAbABvAGIAYQBsAC0AYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABIAdABvAG8AbABzAC0AYgBhAHIBAAABJv////8AAAAAAAAAAAAAABYAcABsAHUAZwBpAG4AcwAtAGIAYQByAAAAAAD/////AAAAAAAAAAA="
   },
   "recent-books": [
+    "/home/manuelin/Downloads/Carta_Fiscal_Nacion_Sospecha_Corrupcion_Fiscalia_San_Ignacio_24_Sep_2026.epub",
+    "/home/manuelin/Downloads/Le Petit Prince (Saint-Exupéry, Antoine de) (z-library.sk, 1lib.sk, z-lib.sk).epub",
     "/home/manuelin/Desktop/cursos/SFU/ARCH301/01. Module 1, Week 1 May 11-15, What is Archaeology/1.1 Module 1 Overview.epub",
     "/home/manuelin/Desktop/reads/calibre_library/Unknown/From Outside In (J. Marvin Brown) (Z-Library) (6)/From Outside In (J. Marvin Brown) (Z-Libra - Unknown.epub",
     "/home/manuelin/Desktop/Cursos/SFU/Cursos/CMPT 379/Compilers Principles, Techniques, and Tools, 2e (Aho etc.) (Z-Library).epub"
