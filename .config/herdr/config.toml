@@ -2,6 +2,7 @@ onboarding = false
 [ui]
 agent_panel_sort = "spaces"
 
+status_indicators = "dots"
 [ui.toast]
 delivery = "system"
 delay_seconds = 1
