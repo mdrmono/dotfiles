@@ -60,6 +60,19 @@ runtime state under `~/.config/open-whispr`—including databases, recordings,
 models, sessions, and credentials—remains machine-local and is intentionally
 not tracked here.
 
+## Screenshots
+
+`Mod+P` freezes the current desktop, lets you select a region, and copies the
+PNG to the X11 clipboard. If an open dropdown prevents region selection, the
+same shortcut copies the focused monitor with the dropdown visible. Chromium's
+native dropdown closes on `Mod+P`; double-tap `Super` after opening it to copy
+the focused monitor immediately. You can also press `Mod+Shift+P` before opening
+it; a brief notification confirms the shortcut, and the focused monitor is
+copied five seconds later. The helper uses GTK instead of Ubuntu's packaged
+`xclip` because `xclip` 0.13 can hang applications while serving large images.
+It requires `scrot`, `python3-xlib`, `python3-gi`, `gir1.2-gtk-3.0`, and
+`libnotify-bin`.
+
 ## Notes
 
 - Copy `.env.example` to `.env` and configure as needed
