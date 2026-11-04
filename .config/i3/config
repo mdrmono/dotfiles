@@ -57,12 +57,8 @@ bindsym --release $mod+space exec --no-startup-id ~/dotfiles/scripts/util/cycle_
 # ==============================
 # Disable X11 pointer acceleration (conflicts with libinput)
 exec_always --no-startup-id xset m 1 0
-# Use flat acceleration profile for more direct cursor movement
-exec_always --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1, 0
-exec_always --no-startup-id xinput set-prop 10 "libinput Accel Profile Enabled" 0, 1, 0
-# Increase pointer speed (adjust between -1.0 to 1.0 as needed)
-exec_always --no-startup-id xinput set-prop 9 "libinput Accel Speed" 0.85
-exec_always --no-startup-id xinput set-prop 10 "libinput Accel Speed" 0.85
+# Use stable pointer matching instead of session-dependent XInput IDs.
+exec_always --no-startup-id ~/dotfiles/scripts/util/configure_pointers.sh
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
