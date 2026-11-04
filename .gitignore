@@ -4,6 +4,9 @@
 __pycache__/
 *.py[cod]
 
+# Generated screenshots, recordings, and validation evidence
+/output/
+
 # VSCode machine-specific files
 vscode/argv.json
 vscode/extensions/
