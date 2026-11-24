@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# With no arguments, configure every connected monitor. Use --single only as a
-# temporary override; the next i3 reload returns to the default dual layout.
+# By default, configure every connected monitor. The --single option applies
+# only to this invocation, so the next i3 reload restores connected monitors.
 SINGLE_OUTPUT=""
 if [ "${1:-}" = "--single" ]; then
   if [ "$#" -ne 2 ]; then
@@ -158,7 +158,7 @@ setup_single_monitor() {
     fi
   done
 
-  xrandr "${xrandr_args[@]}"
+  xrandr "${xrandr_args[@]}" || return
   move_workspaces_to_output "$target"
 }
 
@@ -182,11 +182,11 @@ fi
 echo "Detected monitors: ${MONITORS[*]}"
 
 if [ -n "$SINGLE_OUTPUT" ]; then
-  setup_single_monitor "$SINGLE_OUTPUT"
+  setup_single_monitor "$SINGLE_OUTPUT" || exit 1
 
 elif [ ${#MONITORS[@]} -eq 1 ]; then
   echo "Setting up single monitor: ${MONITORS[0]}"
-  setup_single_monitor "${MONITORS[0]}"
+  setup_single_monitor "${MONITORS[0]}" || exit 1
 
 elif [ ${#MONITORS[@]} -eq 2 ]; then
   echo "Setting up dual monitors"
@@ -212,15 +212,15 @@ elif [ ${#MONITORS[@]} -eq 2 ]; then
 
   set -- $mode_rate0
   echo "Setting $PRIMARY_DISPLAY (primary) to mode $1 at ${2}Hz"
-  xrandr --output "$PRIMARY_DISPLAY" --primary --mode "$1" --rate "$2"
+  xrandr --output "$PRIMARY_DISPLAY" --primary --mode "$1" --rate "$2" || exit 1
 
   set -- $mode_rate1
   if [ "$SECONDARY_DISPLAY" = "$LAPTOP_DISPLAY" ]; then
     echo "Setting $SECONDARY_DISPLAY to mode $1 at ${2}Hz (left of $PRIMARY_DISPLAY)"
-    xrandr --output "$SECONDARY_DISPLAY" --mode "$1" --rate "$2" --left-of "$PRIMARY_DISPLAY"
+    xrandr --output "$SECONDARY_DISPLAY" --mode "$1" --rate "$2" --left-of "$PRIMARY_DISPLAY" || exit 1
   else
     echo "Setting $SECONDARY_DISPLAY to mode $1 at ${2}Hz (right of $PRIMARY_DISPLAY)"
-    xrandr --output "$SECONDARY_DISPLAY" --mode "$1" --rate "$2" --right-of "$PRIMARY_DISPLAY"
+    xrandr --output "$SECONDARY_DISPLAY" --mode "$1" --rate "$2" --right-of "$PRIMARY_DISPLAY" || exit 1
   fi
 
 else

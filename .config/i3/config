@@ -13,6 +13,7 @@ set $mod Mod4
 set $primary_display DP-0 HDMI-0 HDMI-2 DP-1-0
 set $secondary_display eDP-1-1 eDP-1-2 eDP-1
 set $laptop_display eDP-1-1 eDP-1-2 eDP-1
+set $display_setup ~/dotfiles/scripts/util/dual_monitors.sh && ~/dotfiles/scripts/util/launch_polybar.sh
 
 # Shared desktop palette (matches Dunst and Polybar)
 set $background #1A1412
@@ -34,8 +35,7 @@ font pango:JetBrainsMono Nerd Font 9
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # exec_always --no-startup-id sh -c 'killall -q polybar; while pgrep -x polybar >/dev/null; do sleep 0.2; done; polybar main & polybar secondary &'
-exec_always --no-startup-id ~/dotfiles/scripts/util/dual_monitors.sh
-exec_always --no-startup-id ~/dotfiles/scripts/util/launch_polybar.sh
+exec_always --no-startup-id $display_setup
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/lfxgnmovlsze1.png
 exec --no-startup-id ~/dotfiles/scripts/util/battery_alert.sh
 exec --no-startup-id syncthing --no-browser
@@ -205,7 +205,7 @@ workspace 9 output $primary_display $laptop_display
 workspace 10 output $laptop_display $primary_display
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec --no-startup-id i3-msg reload && $display_setup
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
